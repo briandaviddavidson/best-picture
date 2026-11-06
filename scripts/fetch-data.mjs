@@ -245,11 +245,13 @@ async function fetchPageviews() {
   const endStr = `${end.toISOString().slice(0, 10).replace(/-/g, '')}00`;
   const todo = titles.filter((t) => !cache[t] || cache[t].end !== endStr);
   log(`pageviews: ${titles.length} articles, ${todo.length} to fetch`);
-  await pool(todo, 4, async (t) => {
+  let n = 0;
+  await pool(todo, 2, async (t) => {
     const url = `https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/en.wikipedia/all-access/user/${encodeURIComponent(t.replace(/ /g, '_'))}/monthly/2015070100/${endStr}`;
     const j = await get(url);
     cache[t] = { end: endStr, months: (j?.items ?? []).map((i) => [i.timestamp.slice(0, 6), i.views]) };
-    await sleep(60);
+    if (++n % 25 === 0) writeJson('pageviews.json', cache); // save progress so an interrupted run resumes
+    await sleep(150);
   });
   writeJson('pageviews.json', cache);
   note('pageviews', { articles: titles.length, through: endStr });
