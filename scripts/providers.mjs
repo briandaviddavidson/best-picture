@@ -10,7 +10,7 @@ const RENAME = {
   'Paramount Plus': 'Paramount+', 'Disney Plus': 'Disney+', 'MGM Plus': 'MGM+', 'Lionsgate Plus': 'Lionsgate+',
   'Peacock': 'Peacock', 'Tubi TV': 'Tubi', 'Amazon Video': 'Prime Video Store', 'Amazon Prime Video': 'Prime Video',
   'Apple TV Store': 'Apple TV Store', 'Fandango At Home': 'Fandango at Home', 'YouTube Free': 'YouTube',
-  'Starz': 'Starz', 'Cinemax': 'Cinemax', 'Britbox': 'BritBox',
+  'Starz': 'Starz', 'AMC Plus': 'AMC+', 'Broadway HD': 'BroadwayHD', 'Cinemax': 'Cinemax', 'Britbox': 'BritBox',
 };
 
 // Services that carry live cable channels rather than an on-demand library of their own.

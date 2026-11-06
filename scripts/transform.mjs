@@ -26,11 +26,14 @@ const Q = { problems: [...problems], unmatched: [], multi_tmdb: [], no_runtime: 
 
 // ---------- CPI (annual average of monthly CPI-U) ----------
 const cpi = {};
+const cpiPartial = [];
 if (fs.existsSync(path.join(ROOT, 'data/raw/cpi.csv'))) {
   const lines = fs.readFileSync(path.join(ROOT, 'data/raw/cpi.csv'), 'utf8').trim().split('\n').slice(1);
   const by = {};
   for (const l of lines) { const [d, v] = l.split(','); const y = +d.slice(0, 4); if (v && v !== '.') (by[y] ??= []).push(+v); }
-  for (const [y, vs] of Object.entries(by)) if (vs.length === 12) cpi[y] = vs.reduce((a, b) => a + b) / 12;
+  // A year counts if it has at least 10 monthly readings. (October 2025 CPI was never
+// published because of that autumn's federal shutdown, so 2025 has 11.)
+for (const [y, vs] of Object.entries(by)) if (vs.length >= 10) { cpi[y] = vs.reduce((a, b) => a + b) / vs.length; if (vs.length < 12) cpiPartial.push(`${y} (${vs.length} months)`); }
 }
 const cpiYears = Object.keys(cpi).map(Number);
 const cpiBase = cpiYears.length ? Math.max(...cpiYears) : null;
@@ -46,7 +49,8 @@ function filmYear(label) {
 }
 
 // ---------- providers ----------
-const logoFiles = new Set(fs.existsSync(path.join(ROOT, 'public/logos')) ? fs.readdirSync(path.join(ROOT, 'public/logos')).map((f) => +f.split('.')[0]) : []);
+const logoFileById = new Map(fs.existsSync(path.join(ROOT, 'public/logos')) ? fs.readdirSync(path.join(ROOT, 'public/logos')).map((f) => [+f.split('.')[0], f]) : []);
+const logoFiles = new Set(logoFileById.keys());
 const services = new Map(); // canonical name -> {name, logo, ids:Set, kind}
 function service(p, offer) {
   const { name, via } = canonical(p.provider_name);
@@ -87,7 +91,7 @@ function streaming(us) {
 // ---------- rows ----------
 const rows = nominees.map((n) => {
   const ids = filmIds[n.article] ?? {};
-  const t = tmdb[n.article];
+  const t = tmdb[ids.article ?? n.article] ?? tmdb[n.article];
   const fy = filmYear(n.film_year_label);
   if (fy === null) Q.problems.push({ kind: 'unparsed_film_year', ceremony: n.ceremony, label: n.film_year_label });
   if (!t || t.status !== 'ok') Q.unmatched.push({ ceremony: n.ceremony, title: n.title, article: n.article, qid: ids.qid ?? null, status: t?.status ?? 'not fetched', tmdb_candidates: t?.tmdb_candidates });
@@ -136,6 +140,13 @@ const rows = nominees.map((n) => {
 });
 
 // ---------- special cases, stated explicitly ----------
+// TMDB gives The Artist (2011) original_language "fr" because it is a French
+// production, but it is a silent film. Treat it as silent rather than non-English.
+const LANGUAGE_OVERRIDES = { 'The Artist|84': { language: 'xx', why: 'Silent film; TMDB lists French because it is a French production.' } };
+for (const r of rows) {
+  const o = LANGUAGE_OVERRIDES[`${r.title}|${r.ceremony}`];
+  if (o) { r.original_language = o.language; r.notes.push(o.why); }
+}
 const byTitle = (title, ceremony) => rows.find((r) => r.title === title && r.ceremony === ceremony);
 const special = [];
 function flag(row, text) { if (row) { row.notes.push(text); special.push(`${row.title} (${row.ceremony}): ${text}`); } else Q.problems.push({ kind: 'special_case_row_missing', text }); }
@@ -176,7 +187,7 @@ if (wikidata) {
 // ---------- services ----------
 const serviceList = [...services.values()].map((s) => ({
   name: s.name,
-  logo: parentLogo.get(s.name) ?? s.logo,
+  logo: logoFileById.get(parentLogo.get(s.name) ?? s.logo) ?? null,
   kinds: [...s.kinds].sort(),
   priority: s.priority,
 })).sort((a, b) => a.priority - b.priority);
@@ -205,7 +216,7 @@ md.push(`| Item | Count |`, `|---|---|`);
 md.push(`| Nominations parsed from Wikipedia | ${rows.length} |`, `| Winners | ${rows.filter((r) => r.winner).length} |`, `| Ceremonies | ${ceremonies.length} (1–${ceremonies.at(-1)}) |`);
 md.push(`| Matched to TMDB | ${ok} |`, `| With runtime | ${rows.filter((r) => r.runtime).length} |`, `| With box office (TMDB revenue > 0) | ${rows.filter((r) => r.revenue).length} |`);
 md.push(`| With US watch-provider data | ${rows.filter((r) => r.watch).length} |`, `| With pageviews | ${rows.filter((r) => r.pageviews !== null).length} |`, '');
-md.push('## Special cases handled', '', ...special.map((s) => `- ${s}`), '- Category name changes come from the "Category name changes" list in the same Wikipedia article: ' + eras.map((e) => `${e.name} (${e.from_label}–${e.to_label})`).join('; ') + '.', '- Split-year eligibility (1927/28 to 1932/33) is mapped to the later year; 2020/21 (COVID-extended) is mapped to 2020.', '- Each film appears once; no film has been nominated twice. Remakes are distinct films and are matched by Wikidata item, not title.', '');
+md.push('## Special cases handled', '', ...special.map((s) => `- ${s}`), '- Category name changes come from the "Category name changes" list in the same Wikipedia article: ' + eras.map((e) => `${e.name} (${e.from_label}–${e.to_label})`).join('; ') + '.', '- Split-year eligibility (1927/28 to 1932/33) is mapped to the later year; 2020/21 (COVID-extended) is mapped to 2020.', '- CPI years averaged from fewer than 12 months: ' + (cpiPartial.join(', ') || 'none') + `. Box office is adjusted to ${cpiBase} dollars.`, '- Language override: The Artist (2011) is silent; TMDB lists French (production country), so it is not counted as a non-English winner.', '- Each film appears once; no film has been nominated twice. Remakes are distinct films and are matched by Wikidata item, not title.', '');
 md.push('## Parser problems', '', Q.problems.length ? Q.problems.map((p) => `- ${JSON.stringify(p)}`).join('\n') : 'None.', '');
 md.push('## Films not matched to TMDB', '', Q.unmatched.length ? Q.unmatched.map((u) => `- ${u.title} (${u.ceremony}), ${u.article}, ${u.qid ?? 'no Wikidata item'}: ${u.status}`).join('\n') : 'None.', '');
 md.push('## Wikidata had more than one TMDB ID', '', Q.multi_tmdb.length ? Q.multi_tmdb.map((m) => `- ${m.title}: ${m.tmdb.join(', ')} (used ${m.used ?? 'IMDb lookup / none'})`).join('\n') : 'None.', '');

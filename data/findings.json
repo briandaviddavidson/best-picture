@@ -1,0 +1,3021 @@
+{
+ "headline": {
+  "first_label": "1927/28",
+  "latest_label": "2025",
+  "ceremonies": 98,
+  "nominations": 621,
+  "winners": 98,
+  "latest_winner": {
+   "title": "One Battle After Another",
+   "year": "2025",
+   "ceremony": 98
+  },
+  "first_winner": {
+   "title": "Wings",
+   "year": "1927/28",
+   "ceremony": 1
+  },
+  "names": 5,
+  "most_nominees": {
+   "n": 12,
+   "ceremonies": [
+    7,
+    8
+   ]
+  },
+  "fewest_nominees": {
+   "n": 3,
+   "ceremonies": [
+    1
+   ]
+  }
+ },
+ "eras": [
+  {
+   "from_ceremony": 1,
+   "from_label": "1927/28",
+   "to_ceremony": 2,
+   "to_label": "1928/29",
+   "name": "Outstanding Picture",
+   "ceremonies": 2,
+   "first_winner": {
+    "title": "Wings",
+    "year": "1927/28",
+    "ceremony": 1
+   },
+   "last_winner": {
+    "title": "The Broadway Melody",
+    "year": "1928/29",
+    "ceremony": 2
+   },
+   "winners": 2
+  },
+  {
+   "from_ceremony": 3,
+   "from_label": "1929/30",
+   "to_ceremony": 13,
+   "to_label": "1940",
+   "name": "Outstanding Production",
+   "ceremonies": 11,
+   "first_winner": {
+    "title": "All Quiet on the Western Front",
+    "year": "1929/30",
+    "ceremony": 3
+   },
+   "last_winner": {
+    "title": "Rebecca",
+    "year": "1940",
+    "ceremony": 13
+   },
+   "winners": 11
+  },
+  {
+   "from_ceremony": 14,
+   "from_label": "1941",
+   "to_ceremony": 16,
+   "to_label": "1943",
+   "name": "Outstanding Motion Picture",
+   "ceremonies": 3,
+   "first_winner": {
+    "title": "How Green Was My Valley",
+    "year": "1941",
+    "ceremony": 14
+   },
+   "last_winner": {
+    "title": "Casablanca",
+    "year": "1943",
+    "ceremony": 16
+   },
+   "winners": 3
+  },
+  {
+   "from_ceremony": 17,
+   "from_label": "1944",
+   "to_ceremony": 34,
+   "to_label": "1961",
+   "name": "Best Motion Picture",
+   "ceremonies": 18,
+   "first_winner": {
+    "title": "Going My Way",
+    "year": "1944",
+    "ceremony": 17
+   },
+   "last_winner": {
+    "title": "West Side Story",
+    "year": "1961",
+    "ceremony": 34
+   },
+   "winners": 18
+  },
+  {
+   "from_ceremony": 35,
+   "from_label": "1962",
+   "to_ceremony": null,
+   "to_label": "present",
+   "name": "Best Picture",
+   "ceremonies": 64,
+   "first_winner": {
+    "title": "Lawrence of Arabia",
+    "year": "1962",
+    "ceremony": 35
+   },
+   "last_winner": {
+    "title": "One Battle After Another",
+    "year": "2025",
+    "ceremony": 98
+   },
+   "winners": 64
+  }
+ ],
+ "eras_summary": {
+  "longest": "Best Picture",
+  "current_share": 65,
+  "current_from": "1962",
+  "before_current": 34
+ },
+ "runtime": {
+  "winners_with_runtime": 98,
+  "nominees_with_runtime": 621,
+  "winner_median": 130,
+  "field_median": 121,
+  "winner_longer_than_field_median": {
+   "n": 59,
+   "of": 98
+  },
+  "longest": {
+   "title": "Gone with the Wind",
+   "year": "1939",
+   "ceremony": 12,
+   "runtime": 238
+  },
+  "shortest": {
+   "title": "Marty",
+   "year": "1955",
+   "ceremony": 28,
+   "runtime": 90
+  },
+  "by_decade": [
+   {
+    "decade": 1920,
+    "winner_median": 122.5,
+    "field_median": 107,
+    "n": 8
+   },
+   {
+    "decade": 1930,
+    "winner_median": 124.5,
+    "field_median": 102.5,
+    "n": 92
+   },
+   {
+    "decade": 1940,
+    "winner_median": 122,
+    "field_median": 118,
+    "n": 70
+   },
+   {
+    "decade": 1950,
+    "winner_median": 128.5,
+    "field_median": 119,
+    "n": 50
+   },
+   {
+    "decade": 1960,
+    "winner_median": 140.5,
+    "field_median": 138.5,
+    "n": 50
+   },
+   {
+    "decade": 1970,
+    "winner_median": 132,
+    "field_median": 122,
+    "n": 50
+   },
+   {
+    "decade": 1980,
+    "winner_median": 133,
+    "field_median": 122,
+    "n": 50
+   },
+   {
+    "decade": 1990,
+    "winner_median": 152,
+    "field_median": 135,
+    "n": 50
+   },
+   {
+    "decade": 2000,
+    "winner_median": 131.5,
+    "field_median": 129,
+    "n": 55
+   },
+   {
+    "decade": 2010,
+    "winner_median": 121.5,
+    "field_median": 126.5,
+    "n": 88
+   },
+   {
+    "decade": 2020,
+    "winner_median": 139.5,
+    "field_median": 138,
+    "n": 58
+   }
+  ],
+  "decade_change": {
+   "from": {
+    "decade": 1930,
+    "winner_median": 124.5,
+    "field_median": 102.5,
+    "n": 92
+   },
+   "to": {
+    "decade": 2020,
+    "winner_median": 139.5,
+    "field_median": 138,
+    "n": 58
+   }
+  }
+ },
+ "genres": {
+  "films_with_genres": 621,
+  "ranking": [
+   {
+    "genre": "Drama",
+    "nominees": 516,
+    "share_nominees": 83,
+    "share_winners": 86
+   },
+   {
+    "genre": "Romance",
+    "nominees": 203,
+    "share_nominees": 33,
+    "share_winners": 35
+   },
+   {
+    "genre": "Comedy",
+    "nominees": 126,
+    "share_nominees": 20,
+    "share_winners": 21
+   },
+   {
+    "genre": "History",
+    "nominees": 106,
+    "share_nominees": 17,
+    "share_winners": 21
+   },
+   {
+    "genre": "Crime",
+    "nominees": 74,
+    "share_nominees": 12,
+    "share_winners": 12
+   },
+   {
+    "genre": "Thriller",
+    "nominees": 70,
+    "share_nominees": 11,
+    "share_winners": 9
+   },
+   {
+    "genre": "War",
+    "nominees": 66,
+    "share_nominees": 11,
+    "share_winners": 17
+   },
+   {
+    "genre": "Adventure",
+    "nominees": 54,
+    "share_nominees": 9,
+    "share_winners": 8
+   },
+   {
+    "genre": "Action",
+    "nominees": 36,
+    "share_nominees": 6,
+    "share_winners": 6
+   },
+   {
+    "genre": "Music",
+    "nominees": 36,
+    "share_nominees": 6,
+    "share_winners": 8
+   },
+   {
+    "genre": "Mystery",
+    "nominees": 30,
+    "share_nominees": 5,
+    "share_winners": 2
+   },
+   {
+    "genre": "Fantasy",
+    "nominees": 28,
+    "share_nominees": 5,
+    "share_winners": 3
+   }
+  ],
+  "by_decade": [
+   {
+    "decade": 1920,
+    "n": 8,
+    "shares": {
+     "Drama": 0.75,
+     "Romance": 0.375,
+     "Comedy": 0.125,
+     "History": 0.125,
+     "Crime": 0.25,
+     "Thriller": 0,
+     "War": 0.125,
+     "Adventure": 0
+    }
+   },
+   {
+    "decade": 1930,
+    "n": 92,
+    "shares": {
+     "Drama": 0.7065217391304348,
+     "Romance": 0.5543478260869565,
+     "Comedy": 0.2826086956521739,
+     "History": 0.14130434782608695,
+     "Crime": 0.07608695652173914,
+     "Thriller": 0,
+     "War": 0.07608695652173914,
+     "Adventure": 0.11956521739130435
+    }
+   },
+   {
+    "decade": 1940,
+    "n": 70,
+    "shares": {
+     "Drama": 0.8142857142857143,
+     "Romance": 0.38571428571428573,
+     "Comedy": 0.14285714285714285,
+     "History": 0.07142857142857142,
+     "Crime": 0.1,
+     "Thriller": 0.12857142857142856,
+     "War": 0.18571428571428572,
+     "Adventure": 0.02857142857142857
+    }
+   },
+   {
+    "decade": 1950,
+    "n": 50,
+    "shares": {
+     "Drama": 0.84,
+     "Romance": 0.48,
+     "Comedy": 0.2,
+     "History": 0.18,
+     "Crime": 0.1,
+     "Thriller": 0.06,
+     "War": 0.12,
+     "Adventure": 0.1
+    }
+   },
+   {
+    "decade": 1960,
+    "n": 50,
+    "shares": {
+     "Drama": 0.8,
+     "Romance": 0.4,
+     "Comedy": 0.28,
+     "History": 0.24,
+     "Crime": 0.1,
+     "Thriller": 0.02,
+     "War": 0.18,
+     "Adventure": 0.12
+    }
+   },
+   {
+    "decade": 1970,
+    "n": 50,
+    "shares": {
+     "Drama": 0.84,
+     "Romance": 0.22,
+     "Comedy": 0.2,
+     "History": 0.1,
+     "Crime": 0.2,
+     "Thriller": 0.16,
+     "War": 0.12,
+     "Adventure": 0.06
+    }
+   },
+   {
+    "decade": 1980,
+    "n": 50,
+    "shares": {
+     "Drama": 0.9,
+     "Romance": 0.32,
+     "Comedy": 0.18,
+     "History": 0.26,
+     "Crime": 0.1,
+     "Thriller": 0.08,
+     "War": 0.08,
+     "Adventure": 0.08
+    }
+   },
+   {
+    "decade": 1990,
+    "n": 50,
+    "shares": {
+     "Drama": 0.88,
+     "Romance": 0.3,
+     "Comedy": 0.2,
+     "History": 0.18,
+     "Crime": 0.2,
+     "Thriller": 0.22,
+     "War": 0.1,
+     "Adventure": 0.02
+    }
+   },
+   {
+    "decade": 2000,
+    "n": 55,
+    "shares": {
+     "Drama": 0.8727272727272727,
+     "Romance": 0.2545454545454545,
+     "Comedy": 0.14545454545454545,
+     "History": 0.12727272727272726,
+     "Crime": 0.14545454545454545,
+     "Thriller": 0.18181818181818182,
+     "War": 0.09090909090909091,
+     "Adventure": 0.12727272727272726
+    }
+   },
+   {
+    "decade": 2010,
+    "n": 88,
+    "shares": {
+     "Drama": 0.9090909090909091,
+     "Romance": 0.14772727272727273,
+     "Comedy": 0.19318181818181818,
+     "History": 0.23863636363636365,
+     "Crime": 0.09090909090909091,
+     "Thriller": 0.1590909090909091,
+     "War": 0.07954545454545454,
+     "Adventure": 0.11363636363636363
+    }
+   },
+   {
+    "decade": 2020,
+    "n": 58,
+    "shares": {
+     "Drama": 0.8103448275862069,
+     "Romance": 0.15517241379310345,
+     "Comedy": 0.1896551724137931,
+     "History": 0.1896551724137931,
+     "Crime": 0.1206896551724138,
+     "Thriller": 0.1724137931034483,
+     "War": 0.05172413793103448,
+     "Adventure": 0.08620689655172414
+    }
+   }
+  ],
+  "shift": [
+   {
+    "genre": "Thriller",
+    "early": 5,
+    "late": 17,
+    "change": 12
+   },
+   {
+    "genre": "Drama",
+    "early": 77,
+    "late": 87,
+    "change": 10
+   },
+   {
+    "genre": "History",
+    "early": 13,
+    "late": 19,
+    "change": 6
+   },
+   {
+    "genre": "Action",
+    "early": 4,
+    "late": 9,
+    "change": 5
+   },
+   {
+    "genre": "Adventure",
+    "early": 8,
+    "late": 11,
+    "change": 3
+   },
+   {
+    "genre": "Crime",
+    "early": 10,
+    "late": 11,
+    "change": 1
+   },
+   {
+    "genre": "Music",
+    "early": 7,
+    "late": 5,
+    "change": -2
+   },
+   {
+    "genre": "Comedy",
+    "early": 21,
+    "late": 18,
+    "change": -3
+   },
+   {
+    "genre": "War",
+    "early": 12,
+    "late": 7,
+    "change": -5
+   },
+   {
+    "genre": "Romance",
+    "early": 48,
+    "late": 18,
+    "change": -30
+   }
+  ],
+  "windows": {
+   "early": "1920s–1950s",
+   "late": "2000s–2020s"
+  },
+  "edge": [
+   {
+    "genre": "War",
+    "edge": 6
+   },
+   {
+    "genre": "History",
+    "edge": 4
+   },
+   {
+    "genre": "Drama",
+    "edge": 3
+   },
+   {
+    "genre": "Romance",
+    "edge": 2
+   },
+   {
+    "genre": "Music",
+    "edge": 2
+   },
+   {
+    "genre": "Comedy",
+    "edge": 1
+   },
+   {
+    "genre": "Crime",
+    "edge": 0
+   },
+   {
+    "genre": "Action",
+    "edge": 0
+   },
+   {
+    "genre": "Adventure",
+    "edge": -1
+   },
+   {
+    "genre": "Thriller",
+    "edge": -2
+   },
+   {
+    "genre": "Mystery",
+    "edge": -3
+   }
+  ]
+ },
+ "boxoffice": {
+  "complete_ceremonies": 52,
+  "of": 98,
+  "top_grosser_won": 13,
+  "top_grosser_won_pct": 25,
+  "before_1990": {
+   "n": 19,
+   "top_won": 5
+  },
+  "since_1990": {
+   "n": 33,
+   "top_won": 8
+  },
+  "last_top_grosser_winner": {
+   "ceremony": 93,
+   "label": "2020/21",
+   "film_year": 2020,
+   "winner": "Nomadland",
+   "rank": 1,
+   "field": 8,
+   "top": "Nomadland",
+   "winner_adj": 46880855,
+   "top_adj": 46880855
+  },
+  "lowest_rank_wins": [],
+  "median_rank_since_2009": 5,
+  "median_field_since_2009": 9,
+  "richest_winner": {
+   "title": "Gone with the Wind",
+   "year": "1939",
+   "ceremony": 12,
+   "revenue_adj": 9313452104
+  },
+  "cpi_base_year": 2025,
+  "ranks": [
+   {
+    "ceremony": 18,
+    "label": "1945",
+    "film_year": 1945,
+    "winner": "The Lost Weekend",
+    "rank": 2,
+    "field": 5,
+    "top": "The Bells of St. Mary's",
+    "winner_adj": 196834071,
+    "top_adj": 381142338
+   },
+   {
+    "ceremony": 26,
+    "label": "1953",
+    "film_year": 1953,
+    "winner": "From Here to Eternity",
+    "rank": 2,
+    "field": 5,
+    "top": "The Robe",
+    "winner_adj": 366846631,
+    "top_adj": 432999303
+   },
+   {
+    "ceremony": 29,
+    "label": "1956",
+    "film_year": 1956,
+    "winner": "Around the World in 80 Days",
+    "rank": 2,
+    "field": 5,
+    "top": "The Ten Commandments",
+    "winner_adj": 497422661,
+    "top_adj": 1453184774
+   },
+   {
+    "ceremony": 35,
+    "label": "1962",
+    "film_year": 1962,
+    "winner": "Lawrence of Arabia",
+    "rank": 1,
+    "field": 5,
+    "top": "Lawrence of Arabia",
+    "winner_adj": 744992066,
+    "top_adj": 744992066
+   },
+   {
+    "ceremony": 37,
+    "label": "1964",
+    "film_year": 1964,
+    "winner": "My Fair Lady",
+    "rank": 2,
+    "field": 5,
+    "top": "Mary Poppins",
+    "winner_adj": 754202341,
+    "top_adj": 1070144760
+   },
+   {
+    "ceremony": 40,
+    "label": "1967",
+    "film_year": 1967,
+    "winner": "In the Heat of the Night",
+    "rank": 4,
+    "field": 5,
+    "top": "The Graduate",
+    "winner_adj": 264245584,
+    "top_adj": 1012832565
+   },
+   {
+    "ceremony": 41,
+    "label": "1968",
+    "film_year": 1968,
+    "winner": "Oliver!",
+    "rank": 3,
+    "field": 5,
+    "top": "Funny Girl",
+    "winner_adj": 346161999,
+    "top_adj": 543376377
+   },
+   {
+    "ceremony": 43,
+    "label": "1970",
+    "film_year": 1970,
+    "winner": "Patton",
+    "rank": 3,
+    "field": 5,
+    "top": "Love Story",
+    "winner_adj": 744635709,
+    "top_adj": 1131050231
+   },
+   {
+    "ceremony": 48,
+    "label": "1975",
+    "film_year": 1975,
+    "winner": "One Flew Over the Cuckoo's Nest",
+    "rank": 2,
+    "field": 5,
+    "top": "Jaws",
+    "winner_adj": 651949680,
+    "top_adj": 2815548568
+   },
+   {
+    "ceremony": 51,
+    "label": "1978",
+    "film_year": 1978,
+    "winner": "The Deer Hunter",
+    "rank": 2,
+    "field": 5,
+    "top": "Heaven Can Wait",
+    "winner_adj": 241827394,
+    "top_adj": 487602990
+   },
+   {
+    "ceremony": 52,
+    "label": "1979",
+    "film_year": 1979,
+    "winner": "Kramer vs. Kramer",
+    "rank": 2,
+    "field": 5,
+    "top": "Apocalypse Now",
+    "winner_adj": 471369799,
+    "top_adj": 665400620
+   },
+   {
+    "ceremony": 53,
+    "label": "1980",
+    "film_year": 1980,
+    "winner": "Ordinary People",
+    "rank": 2,
+    "field": 5,
+    "top": "Coal Miner's Daughter",
+    "winner_adj": 213956851,
+    "top_adj": 262461660
+   },
+   {
+    "ceremony": 54,
+    "label": "1981",
+    "film_year": 1981,
+    "winner": "Chariots of Fire",
+    "rank": 3,
+    "field": 5,
+    "top": "Raiders of the Lost Ark",
+    "winner_adj": 208808508,
+    "top_adj": 1380631695
+   },
+   {
+    "ceremony": 55,
+    "label": "1982",
+    "film_year": 1982,
+    "winner": "Gandhi",
+    "rank": 3,
+    "field": 5,
+    "top": "E.T. the Extra-Terrestrial",
+    "winner_adj": 259348904,
+    "top_adj": 2659974493
+   },
+   {
+    "ceremony": 57,
+    "label": "1984",
+    "film_year": 1984,
+    "winner": "Amadeus",
+    "rank": 1,
+    "field": 5,
+    "top": "Amadeus",
+    "winner_adj": 278940827,
+    "top_adj": 278940827
+   },
+   {
+    "ceremony": 58,
+    "label": "1985",
+    "film_year": 1985,
+    "winner": "Out of Africa",
+    "rank": 1,
+    "field": 5,
+    "top": "Out of Africa",
+    "winner_adj": 680941485,
+    "top_adj": 680941485
+   },
+   {
+    "ceremony": 59,
+    "label": "1986",
+    "film_year": 1986,
+    "winner": "Platoon",
+    "rank": 1,
+    "field": 5,
+    "top": "Platoon",
+    "winner_adj": 406893749,
+    "top_adj": 406893749
+   },
+   {
+    "ceremony": 61,
+    "label": "1988",
+    "film_year": 1988,
+    "winner": "Rain Man",
+    "rank": 1,
+    "field": 5,
+    "top": "Rain Man",
+    "winner_adj": 965966303,
+    "top_adj": 965966303
+   },
+   {
+    "ceremony": 62,
+    "label": "1989",
+    "film_year": 1989,
+    "winner": "Driving Miss Daisy",
+    "rank": 3,
+    "field": 5,
+    "top": "Dead Poets Society",
+    "winner_adj": 378627032,
+    "top_adj": 612531702
+   },
+   {
+    "ceremony": 63,
+    "label": "1990",
+    "film_year": 1990,
+    "winner": "Dances With Wolves",
+    "rank": 2,
+    "field": 5,
+    "top": "Ghost",
+    "winner_adj": 1045253415,
+    "top_adj": 1244323350
+   },
+   {
+    "ceremony": 64,
+    "label": "1991",
+    "film_year": 1991,
+    "winner": "The Silence of the Lambs",
+    "rank": 2,
+    "field": 5,
+    "top": "Beauty and the Beast",
+    "winner_adj": 644736030,
+    "top_adj": 1004579457
+   },
+   {
+    "ceremony": 65,
+    "label": "1992",
+    "film_year": 1992,
+    "winner": "Unforgiven",
+    "rank": 2,
+    "field": 5,
+    "top": "A Few Good Men",
+    "winner_adj": 365171345,
+    "top_adj": 558091027
+   },
+   {
+    "ceremony": 66,
+    "label": "1993",
+    "film_year": 1993,
+    "winner": "Schindler's List",
+    "rank": 2,
+    "field": 5,
+    "top": "The Fugitive",
+    "winner_adj": 716202329,
+    "top_adj": 822084584
+   },
+   {
+    "ceremony": 67,
+    "label": "1994",
+    "film_year": 1994,
+    "winner": "Forrest Gump",
+    "rank": 1,
+    "field": 5,
+    "top": "Forrest Gump",
+    "winner_adj": 1471278350,
+    "top_adj": 1471278350
+   },
+   {
+    "ceremony": 68,
+    "label": "1995",
+    "film_year": 1995,
+    "winner": "Braveheart",
+    "rank": 3,
+    "field": 5,
+    "top": "Apollo 13",
+    "winner_adj": 450465722,
+    "top_adj": 750517549
+   },
+   {
+    "ceremony": 69,
+    "label": "1996",
+    "film_year": 1996,
+    "winner": "The English Patient",
+    "rank": 2,
+    "field": 5,
+    "top": "Jerry Maguire",
+    "winner_adj": 476143999,
+    "top_adj": 561578609
+   },
+   {
+    "ceremony": 70,
+    "label": "1997",
+    "film_year": 1997,
+    "winner": "Titanic",
+    "rank": 1,
+    "field": 5,
+    "top": "Titanic",
+    "winner_adj": 4541155978,
+    "top_adj": 4541155978
+   },
+   {
+    "ceremony": 71,
+    "label": "1998",
+    "film_year": 1998,
+    "winner": "Shakespeare in Love",
+    "rank": 2,
+    "field": 5,
+    "top": "Saving Private Ryan",
+    "winner_adj": 571405379,
+    "top_adj": 951640352
+   },
+   {
+    "ceremony": 72,
+    "label": "1999",
+    "film_year": 1999,
+    "winner": "American Beauty",
+    "rank": 2,
+    "field": 5,
+    "top": "The Sixth Sense",
+    "winner_adj": 688621922,
+    "top_adj": 1300334686
+   },
+   {
+    "ceremony": 73,
+    "label": "2000",
+    "film_year": 2000,
+    "winner": "Gladiator",
+    "rank": 1,
+    "field": 5,
+    "top": "Gladiator",
+    "winner_adj": 870323446,
+    "top_adj": 870323446
+   },
+   {
+    "ceremony": 74,
+    "label": "2001",
+    "film_year": 2001,
+    "winner": "A Beautiful Mind",
+    "rank": 2,
+    "field": 5,
+    "top": "The Lord of the Rings: The Fellowship of the Ring",
+    "winner_adj": 575990555,
+    "top_adj": 1584323862
+   },
+   {
+    "ceremony": 75,
+    "label": "2002",
+    "film_year": 2002,
+    "winner": "Chicago",
+    "rank": 2,
+    "field": 5,
+    "top": "The Lord of the Rings: The Two Towers",
+    "winner_adj": 549073642,
+    "top_adj": 1657883221
+   },
+   {
+    "ceremony": 76,
+    "label": "2003",
+    "film_year": 2003,
+    "winner": "The Lord of the Rings: The Return of the King",
+    "rank": 1,
+    "field": 5,
+    "top": "The Lord of the Rings: The Return of the King",
+    "winner_adj": 1958152523,
+    "top_adj": 1958152523
+   },
+   {
+    "ceremony": 77,
+    "label": "2004",
+    "film_year": 2004,
+    "winner": "Million Dollar Baby",
+    "rank": 1,
+    "field": 5,
+    "top": "Million Dollar Baby",
+    "winner_adj": 369463717,
+    "top_adj": 369463717
+   },
+   {
+    "ceremony": 78,
+    "label": "2005",
+    "film_year": 2005,
+    "winner": "Crash",
+    "rank": 3,
+    "field": 5,
+    "top": "Brokeback Mountain",
+    "winner_adj": 162214762,
+    "top_adj": 293509414
+   },
+   {
+    "ceremony": 79,
+    "label": "2006",
+    "film_year": 2006,
+    "winner": "The Departed",
+    "rank": 1,
+    "field": 5,
+    "top": "The Departed",
+    "winner_adj": 465471207,
+    "top_adj": 465471207
+   },
+   {
+    "ceremony": 80,
+    "label": "2007",
+    "film_year": 2007,
+    "winner": "No Country for Old Men",
+    "rank": 2,
+    "field": 5,
+    "top": "Juno",
+    "winner_adj": 266487512,
+    "top_adj": 360807785
+   },
+   {
+    "ceremony": 81,
+    "label": "2008",
+    "film_year": 2008,
+    "winner": "Slumdog Millionaire",
+    "rank": 1,
+    "field": 5,
+    "top": "Slumdog Millionaire",
+    "winner_adj": 565823579,
+    "top_adj": 565823579
+   },
+   {
+    "ceremony": 82,
+    "label": "2009",
+    "film_year": 2009,
+    "winner": "The Hurt Locker",
+    "rank": 7,
+    "field": 10,
+    "top": "Avatar",
+    "winner_adj": 73658396,
+    "top_adj": 4387432886
+   },
+   {
+    "ceremony": 83,
+    "label": "2010",
+    "film_year": 2010,
+    "winner": "The King's Speech",
+    "rank": 3,
+    "field": 10,
+    "top": "Toy Story 3",
+    "winner_adj": 611553062,
+    "top_adj": 1575814173
+   },
+   {
+    "ceremony": 84,
+    "label": "2011",
+    "film_year": 2011,
+    "winner": "The Artist",
+    "rank": 6,
+    "field": 9,
+    "top": "The Help",
+    "winner_adj": 190975074,
+    "top_adj": 310007612
+   },
+   {
+    "ceremony": 85,
+    "label": "2012",
+    "film_year": 2012,
+    "winner": "Argo",
+    "rank": 6,
+    "field": 9,
+    "top": "Life of Pi",
+    "winner_adj": 325737546,
+    "top_adj": 853980031
+   },
+   {
+    "ceremony": 86,
+    "label": "2013",
+    "film_year": 2013,
+    "winner": "12 Years a Slave",
+    "rank": 5,
+    "field": 9,
+    "top": "Gravity",
+    "winner_adj": 258431039,
+    "top_adj": 999440866
+   },
+   {
+    "ceremony": 87,
+    "label": "2014",
+    "film_year": 2014,
+    "winner": "Birdman or (The Unexpected Virtue of Ignorance)",
+    "rank": 5,
+    "field": 8,
+    "top": "American Sniper",
+    "winner_adj": 140364599,
+    "top_adj": 737486339
+   },
+   {
+    "ceremony": 88,
+    "label": "2015",
+    "film_year": 2015,
+    "winner": "Spotlight",
+    "rank": 6,
+    "field": 8,
+    "top": "The Martian",
+    "winner_adj": 134052142,
+    "top_adj": 857174806
+   },
+   {
+    "ceremony": 89,
+    "label": "2016",
+    "film_year": 2016,
+    "winner": "Moonlight",
+    "rank": 7,
+    "field": 9,
+    "top": "La La Land",
+    "winner_adj": 87252918,
+    "top_adj": 683013251
+   },
+   {
+    "ceremony": 90,
+    "label": "2017",
+    "film_year": 2017,
+    "winner": "The Shape of Water",
+    "rank": 3,
+    "field": 9,
+    "top": "Dunkirk",
+    "winner_adj": 256509362,
+    "top_adj": 721242775
+   },
+   {
+    "ceremony": 91,
+    "label": "2018",
+    "film_year": 2018,
+    "winner": "Green Book",
+    "rank": 4,
+    "field": 8,
+    "top": "Black Panther",
+    "winner_adj": 412517708,
+    "top_adj": 1730734473
+   },
+   {
+    "ceremony": 92,
+    "label": "2019",
+    "film_year": 2019,
+    "winner": "Parasite",
+    "rank": 5,
+    "field": 9,
+    "top": "Joker",
+    "winner_adj": 324378890,
+    "top_adj": 1358705656
+   },
+   {
+    "ceremony": 93,
+    "label": "2020/21",
+    "film_year": 2020,
+    "winner": "Nomadland",
+    "rank": 1,
+    "field": 8,
+    "top": "Nomadland",
+    "winner_adj": 46880855,
+    "top_adj": 46880855
+   },
+   {
+    "ceremony": 96,
+    "label": "2023",
+    "film_year": 2023,
+    "winner": "Oppenheimer",
+    "rank": 2,
+    "field": 10,
+    "top": "Barbie",
+    "winner_adj": 1005868537,
+    "top_adj": 1529024167
+   },
+   {
+    "ceremony": 97,
+    "label": "2024",
+    "film_year": 2024,
+    "winner": "Anora",
+    "rank": 6,
+    "field": 10,
+    "top": "Wicked",
+    "winner_adj": 57767369,
+    "top_adj": 784065947
+   }
+  ]
+ },
+ "countries": {
+  "films_with_countries": 621,
+  "distinct": 33,
+  "top": [
+   {
+    "country": "US",
+    "n": 560
+   },
+   {
+    "country": "GB",
+    "n": 112
+   },
+   {
+    "country": "FR",
+    "n": 32
+   },
+   {
+    "country": "CA",
+    "n": 16
+   },
+   {
+    "country": "DE",
+    "n": 14
+   },
+   {
+    "country": "AU",
+    "n": 10
+   },
+   {
+    "country": "IE",
+    "n": 9
+   },
+   {
+    "country": "IT",
+    "n": 9
+   },
+   {
+    "country": "IN",
+    "n": 7
+   },
+   {
+    "country": "NZ",
+    "n": 7
+   },
+   {
+    "country": "HK",
+    "n": 4
+   },
+   {
+    "country": "SE",
+    "n": 4
+   }
+  ],
+  "by_decade": [
+   {
+    "decade": 1920,
+    "n": 8,
+    "any_foreign": 0,
+    "no_us": 0,
+    "countries": 1
+   },
+   {
+    "decade": 1930,
+    "n": 92,
+    "any_foreign": 5,
+    "no_us": 4,
+    "countries": 3
+   },
+   {
+    "decade": 1940,
+    "n": 70,
+    "any_foreign": 9,
+    "no_us": 9,
+    "countries": 2
+   },
+   {
+    "decade": 1950,
+    "n": 50,
+    "any_foreign": 12,
+    "no_us": 6,
+    "countries": 4
+   },
+   {
+    "decade": 1960,
+    "n": 50,
+    "any_foreign": 36,
+    "no_us": 18,
+    "countries": 8
+   },
+   {
+    "decade": 1970,
+    "n": 50,
+    "any_foreign": 20,
+    "no_us": 8,
+    "countries": 5
+   },
+   {
+    "decade": 1980,
+    "n": 50,
+    "any_foreign": 38,
+    "no_us": 16,
+    "countries": 10
+   },
+   {
+    "decade": 1990,
+    "n": 50,
+    "any_foreign": 34,
+    "no_us": 18,
+    "countries": 9
+   },
+   {
+    "decade": 2000,
+    "n": 55,
+    "any_foreign": 56,
+    "no_us": 5,
+    "countries": 16
+   },
+   {
+    "decade": 2010,
+    "n": 88,
+    "any_foreign": 44,
+    "no_us": 7,
+    "countries": 18
+   },
+   {
+    "decade": 2020,
+    "n": 58,
+    "any_foreign": 48,
+    "no_us": 16,
+    "countries": 24
+   }
+  ],
+  "counts_by_decade": {
+   "1920": {
+    "US": 8
+   },
+   "1930": {
+    "US": 88,
+    "GB": 4,
+    "FR": 1
+   },
+   "1940": {
+    "US": 64,
+    "GB": 6
+   },
+   "1950": {
+    "US": 47,
+    "DE": 1,
+    "GB": 4,
+    "IE": 1
+   },
+   "1960": {
+    "US": 41,
+    "GB": 16,
+    "AU": 1,
+    "IT": 2,
+    "TW": 1,
+    "HK": 1,
+    "DZ": 1,
+    "FR": 1
+   },
+   "1970": {
+    "US": 46,
+    "GB": 6,
+    "DE": 1,
+    "SE": 2,
+    "PH": 1
+   },
+   "1980": {
+    "US": 42,
+    "GB": 16,
+    "FR": 4,
+    "CA": 1,
+    "IN": 1,
+    "MX": 1,
+    "BR": 1,
+    "CN": 1,
+    "IT": 1,
+    "IE": 1
+   },
+   "1990": {
+    "GB": 11,
+    "US": 41,
+    "FR": 4,
+    "JP": 2,
+    "IE": 1,
+    "AU": 3,
+    "NZ": 1,
+    "IT": 2,
+    "BE": 1
+   },
+   "2000": {
+    "GB": 13,
+    "US": 52,
+    "HK": 2,
+    "TW": 1,
+    "CN": 1,
+    "IT": 3,
+    "NZ": 4,
+    "AU": 1,
+    "FR": 7,
+    "DE": 5,
+    "PL": 1,
+    "CH": 1,
+    "CA": 4,
+    "JP": 1,
+    "MX": 1,
+    "ZA": 1
+   },
+   "2010": {
+    "GB": 22,
+    "US": 82,
+    "FR": 6,
+    "BE": 1,
+    "ES": 2,
+    "IN": 5,
+    "DE": 3,
+    "AT": 1,
+    "CA": 6,
+    "IE": 3,
+    "AU": 3,
+    "HK": 1,
+    "TW": 1,
+    "BR": 1,
+    "IT": 1,
+    "KR": 1,
+    "NZ": 1,
+    "CN": 1
+   },
+   "2020": {
+    "US": 49,
+    "FR": 9,
+    "GB": 14,
+    "CA": 5,
+    "XI": 1,
+    "JP": 1,
+    "AU": 2,
+    "NZ": 1,
+    "DE": 4,
+    "IE": 3,
+    "IN": 1,
+    "DK": 2,
+    "GR": 1,
+    "MX": 2,
+    "SE": 2,
+    "CH": 1,
+    "TR": 2,
+    "KR": 2,
+    "PL": 1,
+    "BE": 1,
+    "BR": 2,
+    "NL": 1,
+    "AR": 1,
+    "NO": 1
+   }
+  },
+  "all": {
+   "US": 560,
+   "GB": 112,
+   "FR": 32,
+   "DE": 14,
+   "IE": 9,
+   "AU": 10,
+   "IT": 9,
+   "TW": 3,
+   "HK": 4,
+   "DZ": 1,
+   "SE": 4,
+   "PH": 1,
+   "CA": 16,
+   "IN": 7,
+   "MX": 4,
+   "BR": 4,
+   "CN": 3,
+   "JP": 4,
+   "NZ": 7,
+   "BE": 3,
+   "PL": 2,
+   "CH": 2,
+   "ZA": 1,
+   "ES": 2,
+   "AT": 1,
+   "KR": 3,
+   "XI": 1,
+   "DK": 2,
+   "GR": 1,
+   "TR": 2,
+   "NL": 1,
+   "AR": 1,
+   "NO": 1
+  },
+  "non_english_winners": [
+   {
+    "title": "Parasite",
+    "year": "2019",
+    "ceremony": 92,
+    "language": "ko"
+   }
+  ],
+  "non_english_nominees": 18,
+  "silent_winner_override": [
+   {
+    "title": "The Artist",
+    "year": "2011",
+    "ceremony": 84
+   }
+  ]
+ },
+ "memory": {
+  "through": "2026110100",
+  "ceremonies": 98,
+  "winner_most_read": 37,
+  "winner_most_read_pct": 38,
+  "biggest_upsets": [
+   {
+    "label": "2001",
+    "winner": "A Beautiful Mind",
+    "top": "The Lord of the Rings: The Fellowship of the Ring",
+    "ratio": 35.1
+   },
+   {
+    "label": "1990",
+    "winner": "Dances With Wolves",
+    "top": "Goodfellas",
+    "ratio": 16.9
+   },
+   {
+    "label": "1937",
+    "winner": "The Life of Emile Zola",
+    "top": "A Star Is Born",
+    "ratio": 15.8
+   },
+   {
+    "label": "2020/21",
+    "winner": "Nomadland",
+    "top": "Promising Young Woman",
+    "ratio": 8.4
+   },
+   {
+    "label": "1941",
+    "winner": "How Green Was My Valley",
+    "top": "Citizen Kane",
+    "ratio": 7.9
+   },
+   {
+    "label": "1945",
+    "winner": "The Lost Weekend",
+    "top": "Mildred Pierce",
+    "ratio": 6.3
+   }
+  ],
+  "most_viewed_nominee": {
+   "title": "Oppenheimer",
+   "year": "2023",
+   "ceremony": 96,
+   "winner": true,
+   "views": 51973967
+  },
+  "rows": [
+   {
+    "ceremony": 1,
+    "label": "1927/28",
+    "film_year": 1928,
+    "winner": "Wings",
+    "rank": 1,
+    "field": 3,
+    "top": "Wings",
+    "top_views": 1869518,
+    "winner_views": 1869518,
+    "winner_share": 0.738082228556539
+   },
+   {
+    "ceremony": 2,
+    "label": "1928/29",
+    "film_year": 1929,
+    "winner": "The Broadway Melody",
+    "rank": 1,
+    "field": 5,
+    "top": "The Broadway Melody",
+    "top_views": 569344,
+    "winner_views": 569344,
+    "winner_share": 0.5409706313560086
+   },
+   {
+    "ceremony": 3,
+    "label": "1929/30",
+    "film_year": 1930,
+    "winner": "All Quiet on the Western Front",
+    "rank": 1,
+    "field": 5,
+    "top": "All Quiet on the Western Front",
+    "top_views": 3414791,
+    "winner_views": 3414791,
+    "winner_share": 0.8017808372278239
+   },
+   {
+    "ceremony": 4,
+    "label": "1930/31",
+    "film_year": 1931,
+    "winner": "Cimarron",
+    "rank": 1,
+    "field": 5,
+    "top": "Cimarron",
+    "top_views": 753481,
+    "winner_views": 753481,
+    "winner_share": 0.46568290860456624
+   },
+   {
+    "ceremony": 5,
+    "label": "1931/32",
+    "film_year": 1932,
+    "winner": "Grand Hotel",
+    "rank": 1,
+    "field": 8,
+    "top": "Grand Hotel",
+    "top_views": 938145,
+    "winner_views": 938145,
+    "winner_share": 0.376317408769167
+   },
+   {
+    "ceremony": 6,
+    "label": "1932/33",
+    "film_year": 1933,
+    "winner": "Cavalcade",
+    "rank": 5,
+    "field": 10,
+    "top": "42nd Street",
+    "top_views": 898070,
+    "winner_views": 395910,
+    "winner_share": 0.09625132557993667
+   },
+   {
+    "ceremony": 7,
+    "label": "1934",
+    "film_year": 1934,
+    "winner": "It Happened One Night",
+    "rank": 1,
+    "field": 12,
+    "top": "It Happened One Night",
+    "top_views": 3069757,
+    "winner_views": 3069757,
+    "winner_share": 0.3730374187364186
+   },
+   {
+    "ceremony": 8,
+    "label": "1935",
+    "film_year": 1935,
+    "winner": "Mutiny on the Bounty",
+    "rank": 2,
+    "field": 12,
+    "top": "Top Hat",
+    "top_views": 1485538,
+    "winner_views": 1098046,
+    "winner_share": 0.18419956062360848
+   },
+   {
+    "ceremony": 9,
+    "label": "1936",
+    "film_year": 1936,
+    "winner": "The Great Ziegfeld",
+    "rank": 2,
+    "field": 10,
+    "top": "Mr. Deeds Goes to Town",
+    "top_views": 889863,
+    "winner_views": 639821,
+    "winner_share": 0.15307824797910088
+   },
+   {
+    "ceremony": 10,
+    "label": "1937",
+    "film_year": 1937,
+    "winner": "The Life of Emile Zola",
+    "rank": 8,
+    "field": 10,
+    "top": "A Star Is Born",
+    "top_views": 6022072,
+    "winner_views": 380911,
+    "winner_share": 0.03607452332384033
+   },
+   {
+    "ceremony": 11,
+    "label": "1938",
+    "film_year": 1938,
+    "winner": "You Can't Take It with You",
+    "rank": 2,
+    "field": 10,
+    "top": "The Adventures of Robin Hood",
+    "top_views": 1568841,
+    "winner_views": 1030008,
+    "winner_share": 0.17782436855143496
+   },
+   {
+    "ceremony": 12,
+    "label": "1939",
+    "film_year": 1939,
+    "winner": "Gone with the Wind",
+    "rank": 1,
+    "field": 10,
+    "top": "Gone with the Wind",
+    "top_views": 18719581,
+    "winner_views": 18719581,
+    "winner_share": 0.5241771187086137
+   },
+   {
+    "ceremony": 13,
+    "label": "1940",
+    "film_year": 1940,
+    "winner": "Rebecca",
+    "rank": 2,
+    "field": 10,
+    "top": "The Great Dictator",
+    "top_views": 4631359,
+    "winner_views": 4431812,
+    "winner_share": 0.2626595945494637
+   },
+   {
+    "ceremony": 14,
+    "label": "1941",
+    "film_year": 1941,
+    "winner": "How Green Was My Valley",
+    "rank": 3,
+    "field": 10,
+    "top": "Citizen Kane",
+    "top_views": 15774630,
+    "winner_views": 2000962,
+    "winner_share": 0.07475151467152417
+   },
+   {
+    "ceremony": 15,
+    "label": "1942",
+    "film_year": 1942,
+    "winner": "Mrs. Miniver",
+    "rank": 3,
+    "field": 10,
+    "top": "The Magnificent Ambersons",
+    "top_views": 1437482,
+    "winner_views": 1197132,
+    "winner_share": 0.1605322270123285
+   },
+   {
+    "ceremony": 16,
+    "label": "1943",
+    "film_year": 1943,
+    "winner": "Casablanca",
+    "rank": 1,
+    "field": 10,
+    "top": "Casablanca",
+    "top_views": 13801317,
+    "winner_views": 13801317,
+    "winner_share": 0.7111594435821743
+   },
+   {
+    "ceremony": 17,
+    "label": "1944",
+    "film_year": 1944,
+    "winner": "Going My Way",
+    "rank": 3,
+    "field": 5,
+    "top": "Gaslight",
+    "top_views": 4268261,
+    "winner_views": 1196382,
+    "winner_share": 0.15137695123447964
+   },
+   {
+    "ceremony": 18,
+    "label": "1945",
+    "film_year": 1945,
+    "winner": "The Lost Weekend",
+    "rank": 5,
+    "field": 5,
+    "top": "Mildred Pierce",
+    "top_views": 2229064,
+    "winner_views": 352998,
+    "winner_share": 0.0572607068801319
+   },
+   {
+    "ceremony": 19,
+    "label": "1946",
+    "film_year": 1946,
+    "winner": "The Best Years of Our Lives",
+    "rank": 2,
+    "field": 5,
+    "top": "It's a Wonderful Life",
+    "top_views": 14051478,
+    "winner_views": 2865222,
+    "winner_share": 0.1531675235810262
+   },
+   {
+    "ceremony": 20,
+    "label": "1947",
+    "film_year": 1947,
+    "winner": "Gentleman's Agreement",
+    "rank": 4,
+    "field": 5,
+    "top": "Miracle on 34th Street",
+    "top_views": 4577249,
+    "winner_views": 1266133,
+    "winner_share": 0.13959459197236804
+   },
+   {
+    "ceremony": 21,
+    "label": "1948",
+    "film_year": 1948,
+    "winner": "Hamlet",
+    "rank": 3,
+    "field": 5,
+    "top": "The Red Shoes",
+    "top_views": 2451333,
+    "winner_views": 754276,
+    "winner_share": 0.11589976218511269
+   },
+   {
+    "ceremony": 22,
+    "label": "1949",
+    "film_year": 1949,
+    "winner": "All the King's Men",
+    "rank": 2,
+    "field": 5,
+    "top": "Twelve O'Clock High",
+    "top_views": 1391946,
+    "winner_views": 1119556,
+    "winner_share": 0.23303542231836896
+   },
+   {
+    "ceremony": 23,
+    "label": "1950",
+    "film_year": 1950,
+    "winner": "All About Eve",
+    "rank": 2,
+    "field": 5,
+    "top": "Sunset Boulevard",
+    "top_views": 5773937,
+    "winner_views": 4537938,
+    "winner_share": 0.35825237084916367
+   },
+   {
+    "ceremony": 24,
+    "label": "1951",
+    "film_year": 1951,
+    "winner": "An American in Paris",
+    "rank": 2,
+    "field": 5,
+    "top": "A Streetcar Named Desire",
+    "top_views": 4150229,
+    "winner_views": 2597922,
+    "winner_share": 0.2675614073411044
+   },
+   {
+    "ceremony": 25,
+    "label": "1952",
+    "film_year": 1952,
+    "winner": "The Greatest Show on Earth",
+    "rank": 3,
+    "field": 5,
+    "top": "High Noon",
+    "top_views": 3629189,
+    "winner_views": 1603595,
+    "winner_share": 0.15832432002819755
+   },
+   {
+    "ceremony": 26,
+    "label": "1953",
+    "film_year": 1953,
+    "winner": "From Here to Eternity",
+    "rank": 2,
+    "field": 5,
+    "top": "Roman Holiday",
+    "top_views": 4342377,
+    "winner_views": 3358859,
+    "winner_share": 0.2565671418335811
+   },
+   {
+    "ceremony": 27,
+    "label": "1954",
+    "film_year": 1954,
+    "winner": "On the Waterfront",
+    "rank": 1,
+    "field": 5,
+    "top": "On the Waterfront",
+    "top_views": 4192436,
+    "winner_views": 4192436,
+    "winner_share": 0.5080984925029938
+   },
+   {
+    "ceremony": 28,
+    "label": "1955",
+    "film_year": 1955,
+    "winner": "Marty",
+    "rank": 1,
+    "field": 5,
+    "top": "Marty",
+    "top_views": 1746816,
+    "winner_views": 1746816,
+    "winner_share": 0.3257164465533817
+   },
+   {
+    "ceremony": 29,
+    "label": "1956",
+    "film_year": 1956,
+    "winner": "Around the World in 80 Days",
+    "rank": 4,
+    "field": 5,
+    "top": "The Ten Commandments",
+    "top_views": 8285067,
+    "winner_views": 2248740,
+    "winner_share": 0.13070608335990092
+   },
+   {
+    "ceremony": 30,
+    "label": "1957",
+    "film_year": 1957,
+    "winner": "The Bridge on the River Kwai",
+    "rank": 1,
+    "field": 5,
+    "top": "The Bridge on the River Kwai",
+    "top_views": 6841300,
+    "winner_views": 6841300,
+    "winner_share": 0.6371305368369351
+   },
+   {
+    "ceremony": 31,
+    "label": "1958",
+    "film_year": 1958,
+    "winner": "Gigi",
+    "rank": 1,
+    "field": 5,
+    "top": "Gigi",
+    "top_views": 2773297,
+    "winner_views": 2773297,
+    "winner_share": 0.3543940733970817
+   },
+   {
+    "ceremony": 32,
+    "label": "1959",
+    "film_year": 1959,
+    "winner": "Ben-Hur",
+    "rank": 1,
+    "field": 5,
+    "top": "Ben-Hur",
+    "top_views": 10311676,
+    "winner_views": 10311676,
+    "winner_share": 0.6764729904489798
+   },
+   {
+    "ceremony": 33,
+    "label": "1960",
+    "film_year": 1960,
+    "winner": "The Apartment",
+    "rank": 1,
+    "field": 5,
+    "top": "The Apartment",
+    "top_views": 3126084,
+    "winner_views": 3126084,
+    "winner_share": 0.49339973269375126
+   },
+   {
+    "ceremony": 34,
+    "label": "1961",
+    "film_year": 1961,
+    "winner": "West Side Story",
+    "rank": 1,
+    "field": 5,
+    "top": "West Side Story",
+    "top_views": 5042030,
+    "winner_views": 5042030,
+    "winner_share": 0.39308903382455657
+   },
+   {
+    "ceremony": 35,
+    "label": "1962",
+    "film_year": 1962,
+    "winner": "Lawrence of Arabia",
+    "rank": 1,
+    "field": 5,
+    "top": "Lawrence of Arabia",
+    "top_views": 11891754,
+    "winner_views": 11891754,
+    "winner_share": 0.48872725138620454
+   },
+   {
+    "ceremony": 36,
+    "label": "1963",
+    "film_year": 1963,
+    "winner": "Tom Jones",
+    "rank": 4,
+    "field": 5,
+    "top": "Cleopatra",
+    "top_views": 4850177,
+    "winner_views": 1260378,
+    "winner_share": 0.11656999653816953
+   },
+   {
+    "ceremony": 37,
+    "label": "1964",
+    "film_year": 1964,
+    "winner": "My Fair Lady",
+    "rank": 3,
+    "field": 5,
+    "top": "Mary Poppins",
+    "top_views": 13736889,
+    "winner_views": 5478312,
+    "winner_share": 0.16787074431450677
+   },
+   {
+    "ceremony": 38,
+    "label": "1965",
+    "film_year": 1965,
+    "winner": "The Sound of Music",
+    "rank": 1,
+    "field": 5,
+    "top": "The Sound of Music",
+    "top_views": 17706529,
+    "winner_views": 17706529,
+    "winner_share": 0.6274698489652266
+   },
+   {
+    "ceremony": 39,
+    "label": "1966",
+    "film_year": 1966,
+    "winner": "A Man for All Seasons",
+    "rank": 2,
+    "field": 5,
+    "top": "Who's Afraid of Virginia Woolf?",
+    "top_views": 2712994,
+    "winner_views": 2572592,
+    "winner_share": 0.2848094441094878
+   },
+   {
+    "ceremony": 40,
+    "label": "1967",
+    "film_year": 1967,
+    "winner": "In the Heat of the Night",
+    "rank": 3,
+    "field": 5,
+    "top": "The Graduate",
+    "top_views": 8817714,
+    "winner_views": 4165951,
+    "winner_share": 0.1841037084385188
+   },
+   {
+    "ceremony": 41,
+    "label": "1968",
+    "film_year": 1968,
+    "winner": "Oliver!",
+    "rank": 1,
+    "field": 5,
+    "top": "Oliver!",
+    "top_views": 3664224,
+    "winner_views": 3664224,
+    "winner_share": 0.27268436734470924
+   },
+   {
+    "ceremony": 42,
+    "label": "1969",
+    "film_year": 1969,
+    "winner": "Midnight Cowboy",
+    "rank": 1,
+    "field": 5,
+    "top": "Midnight Cowboy",
+    "top_views": 6509121,
+    "winner_views": 6509121,
+    "winner_share": 0.3687707776715003
+   },
+   {
+    "ceremony": 43,
+    "label": "1970",
+    "film_year": 1970,
+    "winner": "Patton",
+    "rank": 2,
+    "field": 5,
+    "top": "Love Story",
+    "top_views": 5606196,
+    "winner_views": 3208618,
+    "winner_share": 0.20320499200287775
+   },
+   {
+    "ceremony": 44,
+    "label": "1971",
+    "film_year": 1971,
+    "winner": "The French Connection",
+    "rank": 2,
+    "field": 5,
+    "top": "A Clockwork Orange",
+    "top_views": 15767376,
+    "winner_views": 5643546,
+    "winner_share": 0.18262106843278422
+   },
+   {
+    "ceremony": 45,
+    "label": "1972",
+    "film_year": 1972,
+    "winner": "The Godfather",
+    "rank": 1,
+    "field": 5,
+    "top": "The Godfather",
+    "top_views": 35542405,
+    "winner_views": 35542405,
+    "winner_share": 0.690573645035707
+   },
+   {
+    "ceremony": 46,
+    "label": "1973",
+    "film_year": 1973,
+    "winner": "The Sting",
+    "rank": 3,
+    "field": 5,
+    "top": "American Graffiti",
+    "top_views": 8031958,
+    "winner_views": 4917617,
+    "winner_share": 0.22616662870867654
+   },
+   {
+    "ceremony": 47,
+    "label": "1974",
+    "film_year": 1974,
+    "winner": "The Godfather Part II",
+    "rank": 1,
+    "field": 5,
+    "top": "The Godfather Part II",
+    "top_views": 17302062,
+    "winner_views": 17302062,
+    "winner_share": 0.49828130715692626
+   },
+   {
+    "ceremony": 48,
+    "label": "1975",
+    "film_year": 1975,
+    "winner": "One Flew Over the Cuckoo's Nest",
+    "rank": 2,
+    "field": 5,
+    "top": "Jaws",
+    "top_views": 16551400,
+    "winner_views": 13891163,
+    "winner_share": 0.30329983333442867
+   },
+   {
+    "ceremony": 49,
+    "label": "1976",
+    "film_year": 1976,
+    "winner": "Rocky",
+    "rank": 2,
+    "field": 5,
+    "top": "Taxi Driver",
+    "top_views": 15110895,
+    "winner_views": 14134626,
+    "winner_share": 0.3703463738095643
+   },
+   {
+    "ceremony": 50,
+    "label": "1977",
+    "film_year": 1977,
+    "winner": "Annie Hall",
+    "rank": 2,
+    "field": 5,
+    "top": "Star Wars",
+    "top_views": 26972941,
+    "winner_views": 4693663,
+    "winner_share": 0.13210492079158764
+   },
+   {
+    "ceremony": 51,
+    "label": "1978",
+    "film_year": 1978,
+    "winner": "The Deer Hunter",
+    "rank": 1,
+    "field": 5,
+    "top": "The Deer Hunter",
+    "top_views": 10768953,
+    "winner_views": 10768953,
+    "winner_share": 0.5339880488103603
+   },
+   {
+    "ceremony": 52,
+    "label": "1979",
+    "film_year": 1979,
+    "winner": "Kramer vs. Kramer",
+    "rank": 2,
+    "field": 5,
+    "top": "Apocalypse Now",
+    "top_views": 18123052,
+    "winner_views": 5002270,
+    "winner_share": 0.16913702037095069
+   },
+   {
+    "ceremony": 53,
+    "label": "1980",
+    "film_year": 1980,
+    "winner": "Ordinary People",
+    "rank": 2,
+    "field": 5,
+    "top": "Raging Bull",
+    "top_views": 7264913,
+    "winner_views": 4252106,
+    "winner_share": 0.2713257903410937
+   },
+   {
+    "ceremony": 54,
+    "label": "1981",
+    "film_year": 1981,
+    "winner": "Chariots of Fire",
+    "rank": 2,
+    "field": 5,
+    "top": "Raiders of the Lost Ark",
+    "top_views": 15854563,
+    "winner_views": 6715180,
+    "winner_share": 0.23209369933131158
+   },
+   {
+    "ceremony": 55,
+    "label": "1982",
+    "film_year": 1982,
+    "winner": "Gandhi",
+    "rank": 2,
+    "field": 5,
+    "top": "E.T. the Extra-Terrestrial",
+    "top_views": 12545681,
+    "winner_views": 5896872,
+    "winner_share": 0.23112510198905556
+   },
+   {
+    "ceremony": 56,
+    "label": "1983",
+    "film_year": 1983,
+    "winner": "Terms of Endearment",
+    "rank": 1,
+    "field": 5,
+    "top": "Terms of Endearment",
+    "top_views": 5027660,
+    "winner_views": 5027660,
+    "winner_share": 0.3395758594406683
+   },
+   {
+    "ceremony": 57,
+    "label": "1984",
+    "film_year": 1984,
+    "winner": "Amadeus",
+    "rank": 1,
+    "field": 5,
+    "top": "Amadeus",
+    "top_views": 8750114,
+    "winner_views": 8750114,
+    "winner_share": 0.47410337518735646
+   },
+   {
+    "ceremony": 58,
+    "label": "1985",
+    "film_year": 1985,
+    "winner": "Out of Africa",
+    "rank": 1,
+    "field": 5,
+    "top": "Out of Africa",
+    "top_views": 4824791,
+    "winner_views": 4824791,
+    "winner_share": 0.3228578108743489
+   },
+   {
+    "ceremony": 59,
+    "label": "1986",
+    "film_year": 1986,
+    "winner": "Platoon",
+    "rank": 1,
+    "field": 5,
+    "top": "Platoon",
+    "top_views": 8258268,
+    "winner_views": 8258268,
+    "winner_share": 0.4397840750503541
+   },
+   {
+    "ceremony": 60,
+    "label": "1987",
+    "film_year": 1987,
+    "winner": "The Last Emperor",
+    "rank": 2,
+    "field": 5,
+    "top": "Fatal Attraction",
+    "top_views": 7181114,
+    "winner_views": 4973713,
+    "winner_share": 0.2609798906906554
+   },
+   {
+    "ceremony": 61,
+    "label": "1988",
+    "film_year": 1988,
+    "winner": "Rain Man",
+    "rank": 1,
+    "field": 5,
+    "top": "Rain Man",
+    "top_views": 9746318,
+    "winner_views": 9746318,
+    "winner_share": 0.40599988769341433
+   },
+   {
+    "ceremony": 62,
+    "label": "1989",
+    "film_year": 1989,
+    "winner": "Driving Miss Daisy",
+    "rank": 4,
+    "field": 5,
+    "top": "Dead Poets Society",
+    "top_views": 12407118,
+    "winner_views": 3777140,
+    "winner_share": 0.11856067837422264
+   },
+   {
+    "ceremony": 63,
+    "label": "1990",
+    "film_year": 1990,
+    "winner": "Dances With Wolves",
+    "rank": 5,
+    "field": 5,
+    "top": "Goodfellas",
+    "top_views": 19809222,
+    "winner_views": 1171110,
+    "winner_share": 0.02450954488041083
+   },
+   {
+    "ceremony": 64,
+    "label": "1991",
+    "film_year": 1991,
+    "winner": "The Silence of the Lambs",
+    "rank": 1,
+    "field": 5,
+    "top": "The Silence of the Lambs",
+    "top_views": 22981571,
+    "winner_views": 22981571,
+    "winner_share": 0.5135877813259644
+   },
+   {
+    "ceremony": 65,
+    "label": "1992",
+    "film_year": 1992,
+    "winner": "Unforgiven",
+    "rank": 2,
+    "field": 5,
+    "top": "A Few Good Men",
+    "top_views": 11187806,
+    "winner_views": 8265638,
+    "winner_share": 0.24494082150158974
+   },
+   {
+    "ceremony": 66,
+    "label": "1993",
+    "film_year": 1993,
+    "winner": "Schindler's List",
+    "rank": 1,
+    "field": 5,
+    "top": "Schindler's List",
+    "top_views": 22015375,
+    "winner_views": 22015375,
+    "winner_share": 0.5566636523310244
+   },
+   {
+    "ceremony": 67,
+    "label": "1994",
+    "film_year": 1994,
+    "winner": "Forrest Gump",
+    "rank": 2,
+    "field": 5,
+    "top": "The Shawshank Redemption",
+    "top_views": 28664656,
+    "winner_views": 26025750,
+    "winner_share": 0.2994907526595048
+   },
+   {
+    "ceremony": 68,
+    "label": "1995",
+    "film_year": 1995,
+    "winner": "Braveheart",
+    "rank": 1,
+    "field": 5,
+    "top": "Braveheart",
+    "top_views": 13494619,
+    "winner_views": 13494619,
+    "winner_share": 0.4749001916018595
+   },
+   {
+    "ceremony": 69,
+    "label": "1996",
+    "film_year": 1996,
+    "winner": "The English Patient",
+    "rank": 3,
+    "field": 5,
+    "top": "Jerry Maguire",
+    "top_views": 8391454,
+    "winner_views": 6078205,
+    "winner_share": 0.2496805260974923
+   },
+   {
+    "ceremony": 70,
+    "label": "1997",
+    "film_year": 1997,
+    "winner": "Titanic",
+    "rank": 1,
+    "field": 5,
+    "top": "Titanic",
+    "top_views": 40691298,
+    "winner_views": 40691298,
+    "winner_share": 0.5324066743375792
+   },
+   {
+    "ceremony": 71,
+    "label": "1998",
+    "film_year": 1998,
+    "winner": "Shakespeare in Love",
+    "rank": 4,
+    "field": 5,
+    "top": "Saving Private Ryan",
+    "top_views": 19211342,
+    "winner_views": 5573152,
+    "winner_share": 0.12724107882971447
+   },
+   {
+    "ceremony": 72,
+    "label": "1999",
+    "film_year": 1999,
+    "winner": "American Beauty",
+    "rank": 3,
+    "field": 5,
+    "top": "The Green Mile",
+    "top_views": 19089628,
+    "winner_views": 13386698,
+    "winner_share": 0.2584410005288246
+   },
+   {
+    "ceremony": 73,
+    "label": "2000",
+    "film_year": 2000,
+    "winner": "Gladiator",
+    "rank": 1,
+    "field": 5,
+    "top": "Gladiator",
+    "top_views": 26668390,
+    "winner_views": 26668390,
+    "winner_share": 0.5126437262402584
+   },
+   {
+    "ceremony": 74,
+    "label": "2001",
+    "film_year": 2001,
+    "winner": "A Beautiful Mind",
+    "rank": 5,
+    "field": 5,
+    "top": "The Lord of the Rings: The Fellowship of the Ring",
+    "top_views": 13043656,
+    "winner_views": 371306,
+    "winner_share": 0.012458813265036115
+   },
+   {
+    "ceremony": 75,
+    "label": "2002",
+    "film_year": 2002,
+    "winner": "Chicago",
+    "rank": 4,
+    "field": 5,
+    "top": "Gangs of New York",
+    "top_views": 13215483,
+    "winner_views": 6000979,
+    "winner_share": 0.1414131262144964
+   },
+   {
+    "ceremony": 76,
+    "label": "2003",
+    "film_year": 2003,
+    "winner": "The Lord of the Rings: The Return of the King",
+    "rank": 1,
+    "field": 5,
+    "top": "The Lord of the Rings: The Return of the King",
+    "top_views": 11177963,
+    "winner_views": 11177963,
+    "winner_share": 0.3584215457915021
+   },
+   {
+    "ceremony": 77,
+    "label": "2004",
+    "film_year": 2004,
+    "winner": "Million Dollar Baby",
+    "rank": 1,
+    "field": 5,
+    "top": "Million Dollar Baby",
+    "top_views": 9440657,
+    "winner_views": 9440657,
+    "winner_share": 0.31462952119318943
+   },
+   {
+    "ceremony": 78,
+    "label": "2005",
+    "film_year": 2005,
+    "winner": "Crash",
+    "rank": 2,
+    "field": 5,
+    "top": "Brokeback Mountain",
+    "top_views": 15219647,
+    "winner_views": 9365473,
+    "winner_share": 0.2658768964986562
+   },
+   {
+    "ceremony": 79,
+    "label": "2006",
+    "film_year": 2006,
+    "winner": "The Departed",
+    "rank": 1,
+    "field": 5,
+    "top": "The Departed",
+    "top_views": 19594871,
+    "winner_views": 19594871,
+    "winner_share": 0.6032684093823926
+   },
+   {
+    "ceremony": 80,
+    "label": "2007",
+    "film_year": 2007,
+    "winner": "No Country for Old Men",
+    "rank": 2,
+    "field": 5,
+    "top": "There Will Be Blood",
+    "top_views": 15636974,
+    "winner_views": 11980224,
+    "winner_share": 0.265475067836697
+   },
+   {
+    "ceremony": 81,
+    "label": "2008",
+    "film_year": 2008,
+    "winner": "Slumdog Millionaire",
+    "rank": 1,
+    "field": 5,
+    "top": "Slumdog Millionaire",
+    "top_views": 12879935,
+    "winner_views": 12879935,
+    "winner_share": 0.3634806085362102
+   },
+   {
+    "ceremony": 82,
+    "label": "2009",
+    "film_year": 2009,
+    "winner": "The Hurt Locker",
+    "rank": 6,
+    "field": 10,
+    "top": "Avatar",
+    "top_views": 43925234,
+    "winner_views": 7875209,
+    "winner_share": 0.0620969923443813
+   },
+   {
+    "ceremony": 83,
+    "label": "2010",
+    "film_year": 2010,
+    "winner": "The King's Speech",
+    "rank": 5,
+    "field": 10,
+    "top": "Inception",
+    "top_views": 25784025,
+    "winner_views": 8756528,
+    "winner_share": 0.08937944224691269
+   },
+   {
+    "ceremony": 84,
+    "label": "2011",
+    "film_year": 2011,
+    "winner": "The Artist",
+    "rank": 8,
+    "field": 9,
+    "top": "The Help",
+    "top_views": 13696526,
+    "winner_views": 3886826,
+    "winner_share": 0.059881050604371974
+   },
+   {
+    "ceremony": 85,
+    "label": "2012",
+    "film_year": 2012,
+    "winner": "Argo",
+    "rank": 3,
+    "field": 9,
+    "top": "Django Unchained",
+    "top_views": 18866180,
+    "winner_views": 11150284,
+    "winner_share": 0.13278278586360684
+   },
+   {
+    "ceremony": 86,
+    "label": "2013",
+    "film_year": 2013,
+    "winner": "12 Years a Slave",
+    "rank": 2,
+    "field": 9,
+    "top": "The Wolf of Wall Street",
+    "top_views": 27454320,
+    "winner_views": 13381676,
+    "winner_share": 0.16300012464658953
+   },
+   {
+    "ceremony": 87,
+    "label": "2014",
+    "film_year": 2014,
+    "winner": "Birdman or (The Unexpected Virtue of Ignorance)",
+    "rank": 4,
+    "field": 8,
+    "top": "Whiplash",
+    "top_views": 16753051,
+    "winner_views": 12051375,
+    "winner_share": 0.14111821115592393
+   },
+   {
+    "ceremony": 88,
+    "label": "2015",
+    "film_year": 2015,
+    "winner": "Spotlight",
+    "rank": 6,
+    "field": 8,
+    "top": "The Revenant",
+    "top_views": 35298719,
+    "winner_views": 16916324,
+    "winner_share": 0.1007693781712021
+   },
+   {
+    "ceremony": 89,
+    "label": "2016",
+    "film_year": 2016,
+    "winner": "Moonlight",
+    "rank": 3,
+    "field": 9,
+    "top": "Hacksaw Ridge",
+    "top_views": 25502462,
+    "winner_views": 19320261,
+    "winner_share": 0.1370536575768144
+   },
+   {
+    "ceremony": 90,
+    "label": "2017",
+    "film_year": 2017,
+    "winner": "The Shape of Water",
+    "rank": 6,
+    "field": 9,
+    "top": "Dunkirk",
+    "top_views": 29573893,
+    "winner_views": 11417044,
+    "winner_share": 0.07725087804280306
+   },
+   {
+    "ceremony": 91,
+    "label": "2018",
+    "film_year": 2018,
+    "winner": "Green Book",
+    "rank": 4,
+    "field": 8,
+    "top": "Black Panther",
+    "top_views": 44594803,
+    "winner_views": 18313004,
+    "winner_share": 0.12572625812408705
+   },
+   {
+    "ceremony": 92,
+    "label": "2019",
+    "film_year": 2019,
+    "winner": "Parasite",
+    "rank": 3,
+    "field": 9,
+    "top": "Joker",
+    "top_views": 47063287,
+    "winner_views": 35129528,
+    "winner_share": 0.16368549425846193
+   },
+   {
+    "ceremony": 93,
+    "label": "2020/21",
+    "film_year": 2020,
+    "winner": "Nomadland",
+    "rank": 7,
+    "field": 8,
+    "top": "Promising Young Woman",
+    "top_views": 15256072,
+    "winner_views": 1824668,
+    "winner_share": 0.03687843577554364
+   },
+   {
+    "ceremony": 94,
+    "label": "2021",
+    "film_year": 2021,
+    "winner": "CODA",
+    "rank": 6,
+    "field": 10,
+    "top": "Dune",
+    "top_views": 38215093,
+    "winner_views": 7537612,
+    "winner_share": 0.0717640030578104
+   },
+   {
+    "ceremony": 95,
+    "label": "2022",
+    "film_year": 2022,
+    "winner": "Everything Everywhere All at Once",
+    "rank": 3,
+    "field": 10,
+    "top": "Top Gun: Maverick",
+    "top_views": 36569154,
+    "winner_views": 24931759,
+    "winner_share": 0.16298040863333063
+   },
+   {
+    "ceremony": 96,
+    "label": "2023",
+    "film_year": 2023,
+    "winner": "Oppenheimer",
+    "rank": 1,
+    "field": 10,
+    "top": "Oppenheimer",
+    "top_views": 51973967,
+    "winner_views": 51973967,
+    "winner_share": 0.37645232089695807
+   },
+   {
+    "ceremony": 97,
+    "label": "2024",
+    "film_year": 2024,
+    "winner": "Anora",
+    "rank": 4,
+    "field": 10,
+    "top": "Dune: Part Two",
+    "top_views": 20818691,
+    "winner_views": 11753645,
+    "winner_share": 0.1105446750679834
+   },
+   {
+    "ceremony": 98,
+    "label": "2025",
+    "film_year": 2025,
+    "winner": "One Battle After Another",
+    "rank": 2,
+    "field": 10,
+    "top": "Sinners",
+    "top_views": 26888332,
+    "winner_views": 18583582,
+    "winner_share": 0.18590477579943954
+   }
+  ]
+ },
+ "streaming": {
+  "as_of": "2026-11-06",
+  "winners_checked": 98,
+  "winners": {
+   "subscription": 61,
+   "free": 21,
+   "live": 2,
+   "store": 14,
+   "none": 0
+  },
+  "nominees": {
+   "subscription": 321,
+   "free": 109,
+   "live": 29,
+   "store": 142,
+   "none": 20
+  },
+  "nominees_total": 621,
+  "services": [
+   {
+    "name": "Paramount+",
+    "winners": 16,
+    "logo": "2303.png"
+   },
+   {
+    "name": "HBO Max",
+    "winners": 10,
+    "logo": "1899.png"
+   },
+   {
+    "name": "Prime Video",
+    "winners": 10,
+    "logo": "9.png"
+   },
+   {
+    "name": "MGM+",
+    "winners": 10,
+    "logo": "34.png"
+   },
+   {
+    "name": "Netflix",
+    "winners": 5,
+    "logo": "8.png"
+   },
+   {
+    "name": "Sony Pictures Core",
+    "winners": 4,
+    "logo": "2745.png"
+   },
+   {
+    "name": "Howdy",
+    "winners": 4,
+    "logo": "2754.png"
+   },
+   {
+    "name": "Lionsgate+",
+    "winners": 4,
+    "logo": "2358.png"
+   },
+   {
+    "name": "Apple TV",
+    "winners": 3,
+    "logo": "350.png"
+   },
+   {
+    "name": "Artiflix",
+    "winners": 2,
+    "logo": "2623.png"
+   },
+   {
+    "name": "IndieFlix Shorts",
+    "winners": 2,
+    "logo": "2405.png"
+   },
+   {
+    "name": "Criterion Channel",
+    "winners": 2,
+    "logo": "258.png"
+   },
+   {
+    "name": "Wonder Project",
+    "winners": 2,
+    "logo": "2668.png"
+   },
+   {
+    "name": "AMC+",
+    "winners": 2,
+    "logo": "526.png"
+   },
+   {
+    "name": "Cinemax",
+    "winners": 2,
+    "logo": "289.png"
+   },
+   {
+    "name": "Brew",
+    "winners": 1,
+    "logo": "2736.png"
+   },
+   {
+    "name": "IndieFlix",
+    "winners": 1,
+    "logo": "368.png"
+   },
+   {
+    "name": "BroadwayHD",
+    "winners": 1,
+    "logo": "554.png"
+   },
+   {
+    "name": "Disney+",
+    "winners": 1,
+    "logo": "337.png"
+   },
+   {
+    "name": "BritBox",
+    "winners": 1,
+    "logo": "1852.png"
+   },
+   {
+    "name": "Peacock",
+    "winners": 1,
+    "logo": "386.png"
+   },
+   {
+    "name": "Hulu",
+    "winners": 1,
+    "logo": "15.png"
+   }
+  ],
+  "leader": {
+   "name": "Paramount+",
+   "winners": 16
+  },
+  "nowhere": [],
+  "free_winners": 57,
+  "streaming_era_winner": {
+   "title": "CODA",
+   "year": "2021",
+   "ceremony": 94
+  }
+ },
+ "spot_checks": [
+  {
+   "check": "1st ceremony winner is Wings",
+   "pass": true
+  },
+  {
+   "check": "89th ceremony winner is Moonlight, not La La Land",
+   "pass": true
+  },
+  {
+   "check": "92nd ceremony winner is Parasite (Korean-language)",
+   "pass": true
+  },
+  {
+   "check": "82nd ceremony (2009 films) had 10 nominees",
+   "pass": true
+  },
+  {
+   "check": "17th–81st ceremonies each had 5 nominees",
+   "pass": true
+  },
+  {
+   "check": "Gone with the Wind runs over 220 minutes",
+   "pass": true
+  },
+  {
+   "check": "Titanic (1997) grossed over $1.8B nominal",
+   "pass": true
+  },
+  {
+   "check": "Every ceremony has exactly one winner",
+   "pass": true
+  },
+  {
+   "check": "Total nominations match the Wikipedia article (621)",
+   "pass": true
+  }
+ ],
+ "spot_rows": [
+  {
+   "title": "Wings",
+   "ceremony": 1,
+   "year": "1927/28",
+   "runtime": 144,
+   "genres": [
+    "Drama",
+    "Action",
+    "War",
+    "Romance"
+   ],
+   "countries": [
+    "US"
+   ],
+   "language": "en",
+   "tmdb": 28966
+  },
+  {
+   "title": "Casablanca",
+   "ceremony": 16,
+   "year": "1943",
+   "runtime": 102,
+   "genres": [
+    "Drama",
+    "Romance"
+   ],
+   "countries": [
+    "US"
+   ],
+   "language": "en",
+   "tmdb": 289
+  },
+  {
+   "title": "The Godfather",
+   "ceremony": 45,
+   "year": "1972",
+   "runtime": 175,
+   "genres": [
+    "Drama",
+    "Crime"
+   ],
+   "countries": [
+    "US"
+   ],
+   "language": "en",
+   "tmdb": 238
+  },
+  {
+   "title": "Titanic",
+   "ceremony": 70,
+   "year": "1997",
+   "runtime": 194,
+   "genres": [
+    "Drama",
+    "Romance"
+   ],
+   "countries": [
+    "US"
+   ],
+   "language": "en",
+   "tmdb": 597
+  },
+  {
+   "title": "Parasite",
+   "ceremony": 92,
+   "year": "2019",
+   "runtime": 133,
+   "genres": [
+    "Comedy",
+    "Thriller",
+    "Drama"
+   ],
+   "countries": [
+    "KR"
+   ],
+   "language": "ko",
+   "tmdb": 496243
+  },
+  {
+   "title": "CODA",
+   "ceremony": 94,
+   "year": "2021",
+   "runtime": 112,
+   "genres": [
+    "Drama",
+    "Music",
+    "Romance"
+   ],
+   "countries": [
+    "FR",
+    "US"
+   ],
+   "language": "en",
+   "tmdb": 776503
+  }
+ ],
+ "meta": {
+  "built": "2026-11-06",
+  "wikipedia_revid": 1383091331,
+  "streaming_as_of": "2026-11-06",
+  "pageviews_through": "2026110100",
+  "cpi_base_year": 2025,
+  "special_cases": [
+   "Wings (1): Won Outstanding Picture at the 1st ceremony. That night a second top prize, Unique and Artistic Picture, went to Sunrise; the Academy later dropped that award and counts Wings as the first Best Picture. Sunrise is not counted as a Best Picture nominee.",
+   "La La Land (89): Announced as the winner by mistake after the wrong envelope was handed to the presenters; Moonlight was the actual winner.",
+   "Moonlight (89): The real winner, announced minutes after La La Land was read out in error.",
+   "2nd ceremony (1928/29): no official nominees were announced; the five films are the de facto nominees the Academy later reconstructed."
+  ]
+ }
+}

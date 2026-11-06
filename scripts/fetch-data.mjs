@@ -229,7 +229,7 @@ async function fetchLogos() {
   }
   let n = 0;
   for (const [id, lp] of logos) {
-    const file = path.join(LOGOS, `${id}.jpg`);
+    const file = path.join(LOGOS, `${id}${path.extname(lp ?? '') || '.jpg'}`);
     if (!lp || (fs.existsSync(file) && !force('logos'))) continue;
     fs.writeFileSync(file, await get(`https://image.tmdb.org/t/p/w92${lp}`, { as: 'buffer' }));
     n++;
