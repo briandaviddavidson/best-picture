@@ -196,37 +196,37 @@ const oddities = [];
 function oddity(ok, item) { if (ok) oddities.push(item); else Q.problems.push({ kind: 'oddity_unsupported', id: item.id }); }
 oddity(has(/duplicate envelope/) && byTitle('Moonlight', 89)?.winner && byTitle('La La Land', 89) && !byTitle('La La Land', 89).winner, {
   id: 'envelope', ceremony: 89, label: label(89), title: 'The wrong envelope',
-  text: 'The presenters were handed a spare Best Actress envelope, so La La Land was read out as Best Picture. During the acceptance speeches, La La Land producer Jordan Horowitz, now holding the right card, announced that Moonlight had won.',
+  text: 'Presenters got a spare Best Actress envelope and read out La La Land. Mid-speech, its producer Jordan Horowitz announced Moonlight had actually won.',
   films: ['Moonlight', 'La La Land'],
 });
 oddity(has(/Unique and Artistic Picture/) && has(/Jazz Singer[\s\S]{0,40}disqualified/), {
   id: 'two-prizes', ceremony: 1, label: label(1), title: 'Two top prizes, and a talkie left out',
-  text: `The first ceremony crowned ${winnerOf(1)} as Outstanding Picture and Sunrise as Unique and Artistic Picture; the second award was dropped a year later. The Jazz Singer was ruled ineligible because synchronized sound made it an unfair competitor, and received an honorary award instead.`,
+  text: `${winnerOf(1)} won Outstanding Picture; Sunrise won a second top prize, scrapped a year later. The Jazz Singer was barred for having sound.`,
   films: [winnerOf(1)],
 });
 const secondC = rows.filter((r) => r.ceremony === 2);
 oddity(secondC.some((r) => r.notes.some((n) => /no official nominees/.test(n))), {
   id: 'no-nominees', ceremony: 2, label: label(2), title: 'The year with no nominees',
-  text: `No nominees were announced at the 2nd ceremony; ${winnerOf(2)} simply won. The ${secondC.length - 1} other films listed today were reconstructed later by the Academy from records of what the judges had considered.`,
-  films: secondC.map((r) => r.title),
+  text: `${winnerOf(2)} just won. The other ${secondC.length - 1} “nominees” were pieced together by the Academy later.`,
+  films: [winnerOf(2)],
 });
 const runnersUp = [...perCeremony].filter(([, rs]) => rs.some((r) => r.notes.some((n) => /came in second/.test(n)))).map(([c]) => c).sort((a, b) => a - b);
 oddity(runnersUp.length > 0, {
   id: 'runners-up', ceremony: runnersUp[0], label: runnersUp.map(label).join(', '), title: 'Second and third place, announced',
-  text: `For ${runnersUp.length} ceremonies in a row (${runnersUp.map(label).join(', ')}), the Academy also announced which films came second and third. ${runnersUp.map((c) => { const n = perCeremony.get(c)[0].notes.find((x) => /came in second/.test(x)); const m = n.match(/that (.+?) came in second, and (.+?) third/); return m ? `${winnerOf(c)} beat ${m[1]} and ${m[2]}` : null; }).filter(Boolean).join('; ')}.`,
+  text: `For ${runnersUp.length} years in a row, the Academy named the silver and bronze too.`,
   films: runnersUp.map(winnerOf),
 });
 const laemmle = rows.find((r) => r.notes.some((n) => /award was given to his father/.test(n)));
 oddity(!!laemmle, {
   id: 'laemmle', ceremony: laemmle?.ceremony, label: laemmle && label(laemmle.ceremony), title: 'The trophy went to the father',
-  text: `${laemmle?.title} was produced by Carl Laemmle Jr., but the award was presented to his father, Carl Laemmle.`,
+  text: `Carl Laemmle Jr. produced ${laemmle?.title}. His father got the trophy.`,
   films: [laemmle?.title],
 });
 const covid = rows.find((r) => r.ceremony === 93)?.notes.find((n) => /extended/.test(n));
 const short = rows.find((r) => r.ceremony === 94)?.notes.find((n) => /truncated to ten months/.test(n));
 oddity(!!covid && !!short, {
   id: 'covid', ceremony: 93, label: `${label(93)} and ${label(94)}`, title: 'A 14-month year, then a 10-month one',
-  text: `The pandemic stretched eligibility for the 93rd ceremony to the end of February 2021, so ${winnerOf(93)}'s year ran 14 months. The next year was cut to ten months (March to December 2021), and ${winnerOf(94)} won it.`,
+  text: `COVID stretched ${winnerOf(93)}'s eligibility year to 14 months. ${winnerOf(94)}'s was cut to 10.`,
   films: [winnerOf(93), winnerOf(94)],
 });
 const sizes = [...perCeremony].map(([c, rs]) => ({ c, n: rs.length }));
@@ -237,7 +237,7 @@ const sliding = sizes.filter((x) => x.c > lastFive && x.c < tenFrom && x.n !== 1
 const slideMin = Math.min(...sliding.map((x) => x.n)), slideMax = Math.max(...sliding.map((x) => x.n));
 oddity(true, {
   id: 'field', ceremony: 98.5, label: `${label(1)} to ${label(98) ?? 'today'}`, title: `From ${minN} nominees to ${maxN}`,
-  text: `The field has never had a fixed size for long: ${minN} films at the first ceremony, ${maxN} in ${sizes.filter((x) => x.n === maxN).map((x) => label(x.c)).join(' and ')}, exactly 5 for ${sizes.filter((x) => x.n === 5).length} ceremonies, 10 in ${label(lastFive + 1)} and ${label(lastFive + 2)}, then ${slideMax - slideMin === 1 ? `${slideMin} or ${slideMax}` : `anywhere from ${slideMin} to ${slideMax}`} until ${label(tenFrom - 1)}, and 10 every year since ${label(tenFrom)}.`,
+  text: `${minN} at the first ceremony, ${maxN} in ${sizes.filter((x) => x.n === maxN).map((x) => label(x.c)).join(' and ')}, 5 for ${sizes.filter((x) => x.n === 5).length} years, then 10, then ${slideMax - slideMin === 1 ? `${slideMin} or ${slideMax}` : `${slideMin}–${slideMax}`} for a decade, 10 since ${label(tenFrom)}.`,
   films: [],
 });
 

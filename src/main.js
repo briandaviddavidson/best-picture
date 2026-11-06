@@ -31,7 +31,7 @@ const H = F.headline;
 // ---------- hero ----------
 document.querySelectorAll('[data-f="first"]').forEach((el) => (el.textContent = H.first_label.slice(0, 4)));
 document.querySelectorAll('[data-f="latest"]').forEach((el) => (el.textContent = H.latest_label));
-$('#dek').innerHTML = `Over ${H.ceremonies} ceremonies, ${fmt(H.nominations)} films have been nominated for the top prize in American film, and ${H.winners} have won it, from ${t(H.first_winner.title)} to ${t(H.latest_winner.title)}. The prize has changed its name ${H.names - 1} times. Here's what the winners have in common, what the box office has to do with it, and where you can watch every one of them tonight.`;
+$('#dek').innerHTML = `${fmt(H.nominations)} nominees. ${H.winners} winners. ${H.names} names for the same prize. Here's what wins, what doesn't matter, and where to watch every winner tonight.`;
 $('#stats').innerHTML = [
   ['Ceremonies', H.ceremonies],
   ['Nominations', fmt(H.nominations)],
@@ -93,16 +93,16 @@ const tipStyle = (c) => ({ fill: c.surface2, stroke: c.grid, textPadding: 8, fon
   const E = F.eras;
   const cur = E.at(-1);
   const el = section('names', {
-    title: `One prize, ${E.length} names: it has only been “${cur.name}” since ${cur.from_label}`,
-    caption: `The top award started life as <b>${E[0].name}</b>. It was renamed ${E.length - 1} times before settling on <b>${cur.name}</b> at the ${ord(cur.from_ceremony)} ceremony. ${F.eras_summary.before_current} winners, from ${t(E[0].first_winner.title)} to ${t(E.at(-2).last_winner.title)}, took home a prize with a different name. At the first ceremony there were even two top prizes: ${t(E[0].first_winner.title)} won Outstanding Picture and ${t('Sunrise')} won Unique and Artistic Picture, which the Academy then dropped.`,
-    source: `Source: ${SRC.wiki}, “Category name changes.” Band widths are proportional to the number of ceremonies under each name.`,
+    title: `It’s only been “${cur.name}” since ${cur.from_label}`,
+    caption: `It started as <b>${E[0].name}</b>. ${F.eras_summary.before_current} winners, up to ${t(E.at(-2).last_winner.title)}, took home a prize with another name.`,
+    source: `Source: ${SRC.wiki}, “Category name changes.” Bands sized by number of ceremonies; cards show each era’s first and last winner.`,
   });
   $('.era-strip', el).innerHTML = E.map((e, i) => `<span class="${i === E.length - 1 ? 'now' : ''}" style="flex:${e.ceremonies} 1 0">${i + 1}</span>`).join('');
   $('.era-strip', el).insertAdjacentHTML('afterend', `<div class="era-axis" aria-hidden="true"><span>${E[0].from_label}</span><span>1st ceremony → ${ord(E.at(-1).to_ceremony ?? H.ceremonies)}</span><span>${H.latest_label}</span></div>`);
   $('.eras', el).innerHTML = E.map((e, i) => `<li>
     <div class="no">${i + 1}</div><div class="nm">${e.name}</div>
-    <div class="yr">${e.from_label}–${e.to_label} · ${e.ceremonies} ceremon${e.ceremonies === 1 ? 'y' : 'ies'}</div>
-    <div class="ex">${e.first_winner.title === e.last_winner.title ? `Winner: <b>${e.first_winner.title}</b>` : `First winner: <b>${e.first_winner.title}</b><br>Last: <b>${e.last_winner.title}</b>`}</div></li>`).join('');
+    <div class="yr">${e.from_label}–${e.to_label}</div>
+    <div class="ex"><b>${e.first_winner.title}</b>${e.first_winner.title === e.last_winner.title ? '' : ` → <b>${e.last_winner.title}</b>`}</div></li>`).join('');
 }
 
 // ---------- 0b. envelopes and oddities ----------
@@ -110,7 +110,7 @@ const tipStyle = (c) => ({ fill: c.surface2, stroke: c.grid, textPadding: 8, fon
   const O = F.meta.oddities;
   const el = section('oddities', {
     title: 'Only once did they read out the wrong winner',
-    caption: `The 2017 envelope mix-up is the one true on-stage blunder in ${H.ceremonies} ceremonies. The rest of the prize's history has plenty of stranger rules: ${O.length - 1} more below. Tap a film to find it in the where-to-watch list.`,
+    caption: `The 2017 mix-up is the only on-stage blunder in ${H.ceremonies} ceremonies. The rules, though, got strange. Tap a film to see where to watch it.`,
     source: `Source: ${SRC.wiki}, including its footnotes and “2017 ceremony mistake” section. Counts of nominees computed from the same tables.`,
   });
   const lead = O.find((o) => o.id === 'envelope');
@@ -134,8 +134,8 @@ const tipStyle = (c) => ({ fill: c.surface2, stroke: c.grid, textPadding: 8, fon
   const R = F.runtime;
   const longer = R.winner_longer_than_field_median;
   const el = section('runtime', {
-    title: `Winners run long: ${longer.n} of ${longer.of} outlasted the typical film they beat`,
-    caption: `The median winner runs <b>${R.winner_median} minutes</b>, against <b>${R.field_median}</b> for the films that lost. The longest, ${t(R.longest.title)} (${R.longest.year}), runs ${R.longest.runtime} minutes; the shortest, ${t(R.shortest.title)} (${R.shortest.year}), runs ${R.shortest.runtime}.`,
+    title: `Winners run long`,
+    caption: `${longer.n} of ${longer.of} winners ran longer than the typical film they beat. Median winner: <b>${R.winner_median} min</b>. Longest: ${t(R.longest.title)}, ${R.longest.runtime}.`,
     source: `Source: ${SRC.wiki}; runtimes from TMDB (${R.nominees_with_runtime} of ${H.nominations} films). Lines show the median by decade.`,
   });
   legend(el, [['Winner', C().winner, 'dot'], ['Other nominee', C().field, 'dot'], ['Winners’ median by decade', C().winner, 'line'], ['Nominees’ median by decade', C().text2, 'line']]);
@@ -163,8 +163,8 @@ const tipStyle = (c) => ({ fill: c.surface2, stroke: c.grid, textPadding: 8, fon
   const up = G.shift[0], down = G.shift.at(-1);
   const edge = G.edge[0];
   const el = section('genres', {
-    title: `Drama never left; ${up.genre.toLowerCase()} moved in and ${down.genre.toLowerCase()} moved out`,
-    caption: `${G.ranking[0].genre} is tagged on <b>${G.ranking[0].share_nominees}%</b> of nominees. ${up.genre} went from ${up.early}% of nominees in the ${G.windows.early} to ${up.late}% in the ${G.windows.late}; ${down.genre.toLowerCase()} fell from ${down.early}% to ${down.late}%. The genre with the biggest edge at the finish line is ${edge.genre.toLowerCase()}: ${G.ranking.find((g) => g.genre === edge.genre).share_winners}% of winners against ${G.ranking.find((g) => g.genre === edge.genre).share_nominees}% of nominees.`,
+    title: `${up.genre} moved in, ${down.genre.toLowerCase()} moved out`,
+    caption: `${down.genre} fell from <b>${down.early}%</b> of nominees to <b>${down.late}%</b>; ${up.genre.toLowerCase()} rose from ${up.early}% to ${up.late}%. ${edge.genre} punches above its weight: ${G.ranking.find((g) => g.genre === edge.genre).share_nominees}% of nominees, ${G.ranking.find((g) => g.genre === edge.genre).share_winners}% of winners.`,
     source: `Source: ${SRC.wiki}; genres from TMDB. A film can carry several genres, so shares don't add to 100%.`,
   });
   const genres = G.ranking.slice(0, 6).map((g) => g.genre);
@@ -194,8 +194,8 @@ const tipStyle = (c) => ({ fill: c.surface2, stroke: c.grid, textPadding: 8, fon
   const B = F.boxoffice;
   const el = section('boxoffice', {
     title: `The year’s biggest hit won only ${B.top_grosser_won} of ${B.complete_ceremonies} times`,
-    caption: `Where every nominee has a box-office figure (${B.complete_ceremonies} of ${B.of} ceremonies), the nominee that earned the most won <b>${B.top_grosser_won} times</b>, about one in four, and that hasn't changed much: ${B.before_1990.top_won} of ${B.before_1990.n} before 1990, ${B.since_1990.top_won} of ${B.since_1990.n} since. Since the field grew in 2009, the typical winner ranks <b>${ord(B.median_rank_since_2009)}</b> of ${B.median_field_since_2009} at the box office. ${B.last_top_grosser_winner ? `The last top grosser to win was ${t(B.last_top_grosser_winner.winner)} (${B.last_top_grosser_winner.label}).` : ''}`,
-    source: `Source: ${SRC.wiki}; worldwide gross from TMDB, adjusted to ${B.cpi_base_year} dollars with BLS CPI-U. Ceremonies with any nominee missing a gross are left out.`,
+    caption: `About one year in four, before 1990 and since. Lately the typical winner ranks <b>${ord(B.median_rank_since_2009)} of ${B.median_field_since_2009}</b> at the box office.`,
+    source: `Source: ${SRC.wiki}; worldwide gross from TMDB in ${B.cpi_base_year} dollars (BLS CPI-U). Only the ${B.complete_ceremonies} years where every nominee has a gross are shown; top grosser won ${B.before_1990.top_won} of ${B.before_1990.n} before 1990, ${B.since_1990.top_won} of ${B.since_1990.n} since.`,
   });
   const data = B.ranks;
   chart(el, `Dot chart: the winner's box-office rank among its fellow nominees for ${data.length} ceremonies.`, (width, c) => Plot.plot({
@@ -221,9 +221,9 @@ const tipStyle = (c) => ({ fill: c.surface2, stroke: c.grid, textPadding: 8, fon
   const decLast = K.by_decade.at(-1), dec50 = K.by_decade.find((d) => d.decade === 1950);
   const ne = K.non_english_winners;
   const el = section('map', {
-    title: `Hollywood still dominates, but ${decLast.any_foreign}% of this decade’s nominees were made partly abroad`,
-    caption: `Nominees have come from <b>${K.distinct} countries</b>. In the 1950s, ${dec50.any_foreign}% of nominees had any non-U.S. producing country; in the ${decLast.decade}s it's <b>${decLast.any_foreign}%</b>. ${ne.length ? `Only ${ne.length} winner${ne.length === 1 ? '' : 's'} ${ne.length === 1 ? 'was' : 'were'} in a language other than English: ${list(ne.map((w) => `${t(w.title)} (${w.year})`))}${K.silent_winner_override.length ? `; ${list(K.silent_winner_override.map((w) => `${t(w.title)} (${w.year})`))}, a French production, is silent` : ''}.` : ''} ${K.non_english_nominees} nominees in all were mainly in another language.`,
-    source: `Source: ${SRC.wiki}; production countries and original language from TMDB. A film counts once for each producing country.`,
+    title: `${decLast.any_foreign}% of this decade’s nominees were made partly abroad`,
+    caption: `Up from ${dec50.any_foreign}% in the 1950s. ${K.distinct} countries in all, but ${ne.length === 1 ? `${t(ne[0].title)} is still the only non-English winner` : `only ${ne.length} non-English winners`}.`,
+    source: `Source: ${SRC.wiki}; production countries and original language from TMDB. A film counts once per producing country.${K.silent_winner_override.length ? ` ${K.silent_winner_override.map((w) => w.title).join(', ')} is silent, so it isn't counted as non-English.` : ''}`,
   });
   const eras = [['All years', () => true], ['Before 1960', (d) => d < 1960], ['1960–1999', (d) => d >= 1960 && d < 2000], ['2000 on', (d) => d >= 2000]];
   let current = 0;
@@ -268,8 +268,8 @@ const tipStyle = (c) => ({ fill: c.surface2, stroke: c.grid, textPadding: 8, fon
   const through = M.through ? `${M.through.slice(0, 4)}-${M.through.slice(4, 6)}` : '';
   const el = section('memory', {
     title: `Today, the winner is the most-read nominee only ${M.winner_most_read_pct}% of the time`,
-    caption: `Counting Wikipedia pageviews since July 2015, the winner is still the most-looked-up film of its year in <b>${M.winner_most_read} of ${M.ceremonies}</b> ceremonies. The widest gap: ${t(u.top)} now draws ${u.ratio}× the readers of ${t(u.winner)}, the film that beat it in ${u.label}. The most-read nominee of all is ${t(M.most_viewed_nominee.title)} (${M.most_viewed_nominee.year}), ${M.most_viewed_nominee.winner ? 'a winner' : 'which lost'}.`,
-    source: `Source: Wikimedia pageviews API, English Wikipedia, user traffic, July 2015 to ${through}.`,
+    caption: `${t(u.top)} now draws <b>${u.ratio}×</b> the readers of ${t(u.winner)}, the film that beat it.`,
+    source: `Source: Wikimedia pageviews, English Wikipedia, July 2015 to ${through}. Winner is the most-read nominee in ${M.winner_most_read} of ${M.ceremonies} years.`,
   });
   const data = M.rows;
   chart(el, `Dot chart: each winner's rank in Wikipedia pageviews among its year's nominees, for ${data.length} ceremonies.`, (width, c) => Plot.plot({
@@ -292,9 +292,9 @@ const tipStyle = (c) => ({ fill: c.surface2, stroke: c.grid, textPadding: 8, fon
   const S = F.streaming;
   const asOf = new Date(`${S.as_of}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
   const el = section('services', {
-    title: `${S.leader.name} holds the most winners, ${S.leader.winners} of ${H.winners}`,
-    caption: `As of ${asOf}, <b>${S.winners.subscription}</b> winners are included with at least one U.S. subscription, and ${S.free_winners} can be watched free (with ads or a library card). ${S.winners.store} are rent-or-buy only${S.nowhere.length ? `, and ${S.nowhere.length} ${S.nowhere.length === 1 ? 'isn’t' : 'aren’t'} available anywhere: ${list(S.nowhere.map((w) => t(w.title)))}` : ''}.`,
-    source: `Streaming data: JustWatch, via the TMDB API, U.S. availability as of ${asOf}. Counts include a service's add-on channels (e.g. through Prime Video or Roku).`,
+    title: `${S.leader.name} has the most winners: ${S.leader.winners}`,
+    caption: `<b>${S.winners.subscription}</b> winners stream with a subscription and ${S.free_winners} play free. ${S.winners.store} are rent-or-buy only.`,
+    source: `Streaming data: JustWatch via TMDB, U.S., as of ${asOf}. Includes add-on channels (via Prime Video, Roku, Apple TV).`,
   });
   const top = S.services.slice(0, 12);
   const max = top[0].winners;
@@ -309,8 +309,8 @@ const tipStyle = (c) => ({ fill: c.surface2, stroke: c.grid, textPadding: 8, fon
   const S = F.streaming;
   const el = section('watch', {
     title: 'What can you watch tonight?',
-    caption: `Tick the services you pay for to see which of the ${H.winners} winners are already included. <b>Gold</b> logos are yours. Free options with ads or a library card are listed too, and rent-or-buy stores as a last resort.`,
-    source: `Where-to-watch data: <b>JustWatch</b>, via TMDB, U.S. only, as of ${S.as_of}. Availability changes often; each film links to its full, current listing.`,
+    caption: `Tick the services you have. Your matches come first, in gold.`,
+    source: `Where-to-watch data: <b>JustWatch</b>, via TMDB, U.S., as of ${S.as_of}. Free = with ads or a library card. Titles link to the current listing.`,
   });
   initWatch({ films, services, el });
 }

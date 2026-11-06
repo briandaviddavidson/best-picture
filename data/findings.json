@@ -3023,7 +3023,7 @@
     "ceremony": 1,
     "label": "1927/28",
     "title": "Two top prizes, and a talkie left out",
-    "text": "The first ceremony crowned Wings as Outstanding Picture and Sunrise as Unique and Artistic Picture; the second award was dropped a year later. The Jazz Singer was ruled ineligible because synchronized sound made it an unfair competitor, and received an honorary award instead.",
+    "text": "Wings won Outstanding Picture; Sunrise won a second top prize, scrapped a year later. The Jazz Singer was barred for having sound.",
     "films": [
      "Wings"
     ]
@@ -3033,13 +3033,9 @@
     "ceremony": 2,
     "label": "1928/29",
     "title": "The year with no nominees",
-    "text": "No nominees were announced at the 2nd ceremony; The Broadway Melody simply won. The 4 other films listed today were reconstructed later by the Academy from records of what the judges had considered.",
+    "text": "The Broadway Melody just won. The other 4 “nominees” were pieced together by the Academy later.",
     "films": [
-     "The Broadway Melody",
-     "Alibi",
-     "The Hollywood Revue",
-     "In Old Arizona",
-     "The Patriot"
+     "The Broadway Melody"
     ]
    },
    {
@@ -3047,7 +3043,7 @@
     "ceremony": 3,
     "label": "1929/30",
     "title": "The trophy went to the father",
-    "text": "All Quiet on the Western Front was produced by Carl Laemmle Jr., but the award was presented to his father, Carl Laemmle.",
+    "text": "Carl Laemmle Jr. produced All Quiet on the Western Front. His father got the trophy.",
     "films": [
      "All Quiet on the Western Front"
     ]
@@ -3057,7 +3053,7 @@
     "ceremony": 6,
     "label": "1932/33, 1934, 1935",
     "title": "Second and third place, announced",
-    "text": "For 3 ceremonies in a row (1932/33, 1934, 1935), the Academy also announced which films came second and third. Cavalcade beat A Farewell to Arms and Little Women; It Happened One Night beat The Barretts of Wimpole Street and The House of Rothschild; Mutiny on the Bounty beat The Informer and Captain Blood.",
+    "text": "For 3 years in a row, the Academy named the silver and bronze too.",
     "films": [
      "Cavalcade",
      "It Happened One Night",
@@ -3069,7 +3065,7 @@
     "ceremony": 89,
     "label": "2016",
     "title": "The wrong envelope",
-    "text": "The presenters were handed a spare Best Actress envelope, so La La Land was read out as Best Picture. During the acceptance speeches, La La Land producer Jordan Horowitz, now holding the right card, announced that Moonlight had won.",
+    "text": "Presenters got a spare Best Actress envelope and read out La La Land. Mid-speech, its producer Jordan Horowitz announced Moonlight had actually won.",
     "films": [
      "Moonlight",
      "La La Land"
@@ -3080,7 +3076,7 @@
     "ceremony": 93,
     "label": "2020/21 and 2021",
     "title": "A 14-month year, then a 10-month one",
-    "text": "The pandemic stretched eligibility for the 93rd ceremony to the end of February 2021, so Nomadland's year ran 14 months. The next year was cut to ten months (March to December 2021), and CODA won it.",
+    "text": "COVID stretched Nomadland's eligibility year to 14 months. CODA's was cut to 10.",
     "films": [
      "Nomadland",
      "CODA"
@@ -3091,7 +3087,7 @@
     "ceremony": 98.5,
     "label": "1927/28 to 2025",
     "title": "From 3 nominees to 12",
-    "text": "The field has never had a fixed size for long: 3 films at the first ceremony, 12 in 1934 and 1935, exactly 5 for 68 ceremonies, 10 in 2009 and 2010, then 8 or 9 until 2020/21, and 10 every year since 2021.",
+    "text": "3 at the first ceremony, 12 in 1934 and 1935, 5 for 68 years, then 10, then 8 or 9 for a decade, 10 since 2021.",
     "films": []
    }
   ]
