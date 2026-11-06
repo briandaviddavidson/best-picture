@@ -46,7 +46,7 @@ const writeJson = (f, obj) => fs.writeFileSync(rawPath(f), JSON.stringify(obj, n
 const fetchLog = readJson('fetch-log.json', {});
 const note = (source, info) => { fetchLog[source] = { ...info, at: new Date().toISOString() }; writeJson('fetch-log.json', fetchLog); };
 
-async function get(url, { headers = {}, as = 'json', tries = 4 } = {}) {
+async function get(url, { headers = {}, as = 'json', tries = 8 } = {}) {
   for (let i = 1; ; i++) {
     const res = await fetch(url, { headers: { 'User-Agent': UA, 'Api-User-Agent': UA, ...headers } });
     if (res.ok) return as === 'json' ? res.json() : as === 'buffer' ? Buffer.from(await res.arrayBuffer()) : res.text();
@@ -133,7 +133,8 @@ async function fetchFilms() {
       const page = pages.get(canonical);
       cache[a] = { article: canonical, qid: page?.pageprops?.wikibase_item ?? null, missing: !!page?.missing };
     }
-    await sleep(300);
+    writeJson('films.json', cache); // save each batch so a rate-limited run resumes
+    await sleep(1000);
   }
   const qids = [...new Set(Object.values(cache).filter((c) => c.qid && !c.ids_checked).map((c) => c.qid))];
   for (let i = 0; i < qids.length; i += 150) {
