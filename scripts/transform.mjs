@@ -118,7 +118,7 @@ const rows = nominees.map((n) => {
     title: n.title,
     winner: n.winner,
     credits: n.credits,
-    notes: [...n.year_notes, ...n.notes],
+    notes: [...new Set([...n.year_notes, ...n.notes])],
     wikipedia: ids.article ?? n.article,
     wikidata: ids.qid ?? null,
     tmdb_id: ok?.tmdb_id ?? null,
@@ -184,6 +184,63 @@ if (wikidata) {
   }
 }
 
+
+// ---------- envelopes and oddities ----------
+// Each item is written in our own words, but only kept if the supporting text is
+// present in the source (the Wikipedia article or its footnotes); otherwise it is
+// logged as a problem rather than shown.
+const has = (re) => re.test(wikitext);
+const label = (c) => perCeremony.get(c)?.[0]?.film_year_label;
+const winnerOf = (c) => perCeremony.get(c)?.find((r) => r.winner)?.title;
+const oddities = [];
+function oddity(ok, item) { if (ok) oddities.push(item); else Q.problems.push({ kind: 'oddity_unsupported', id: item.id }); }
+oddity(has(/duplicate envelope/) && byTitle('Moonlight', 89)?.winner && byTitle('La La Land', 89) && !byTitle('La La Land', 89).winner, {
+  id: 'envelope', ceremony: 89, label: label(89), title: 'The wrong envelope',
+  text: 'The presenters were handed a spare Best Actress envelope, so La La Land was read out as Best Picture. During the acceptance speeches, La La Land producer Jordan Horowitz, now holding the right card, announced that Moonlight had won.',
+  films: ['Moonlight', 'La La Land'],
+});
+oddity(has(/Unique and Artistic Picture/) && has(/Jazz Singer[\s\S]{0,40}disqualified/), {
+  id: 'two-prizes', ceremony: 1, label: label(1), title: 'Two top prizes, and a talkie left out',
+  text: `The first ceremony crowned ${winnerOf(1)} as Outstanding Picture and Sunrise as Unique and Artistic Picture; the second award was dropped a year later. The Jazz Singer was ruled ineligible because synchronized sound made it an unfair competitor, and received an honorary award instead.`,
+  films: [winnerOf(1)],
+});
+const secondC = rows.filter((r) => r.ceremony === 2);
+oddity(secondC.some((r) => r.notes.some((n) => /no official nominees/.test(n))), {
+  id: 'no-nominees', ceremony: 2, label: label(2), title: 'The year with no nominees',
+  text: `No nominees were announced at the 2nd ceremony; ${winnerOf(2)} simply won. The ${secondC.length - 1} other films listed today were reconstructed later by the Academy from records of what the judges had considered.`,
+  films: secondC.map((r) => r.title),
+});
+const runnersUp = [...perCeremony].filter(([, rs]) => rs.some((r) => r.notes.some((n) => /came in second/.test(n)))).map(([c]) => c).sort((a, b) => a - b);
+oddity(runnersUp.length > 0, {
+  id: 'runners-up', ceremony: runnersUp[0], label: runnersUp.map(label).join(', '), title: 'Second and third place, announced',
+  text: `For ${runnersUp.length} ceremonies in a row (${runnersUp.map(label).join(', ')}), the Academy also announced which films came second and third. ${runnersUp.map((c) => { const n = perCeremony.get(c)[0].notes.find((x) => /came in second/.test(x)); const m = n.match(/that (.+?) came in second, and (.+?) third/); return m ? `${winnerOf(c)} beat ${m[1]} and ${m[2]}` : null; }).filter(Boolean).join('; ')}.`,
+  films: runnersUp.map(winnerOf),
+});
+const laemmle = rows.find((r) => r.notes.some((n) => /award was given to his father/.test(n)));
+oddity(!!laemmle, {
+  id: 'laemmle', ceremony: laemmle?.ceremony, label: laemmle && label(laemmle.ceremony), title: 'The trophy went to the father',
+  text: `${laemmle?.title} was produced by Carl Laemmle Jr., but the award was presented to his father, Carl Laemmle.`,
+  films: [laemmle?.title],
+});
+const covid = rows.find((r) => r.ceremony === 93)?.notes.find((n) => /extended/.test(n));
+const short = rows.find((r) => r.ceremony === 94)?.notes.find((n) => /truncated to ten months/.test(n));
+oddity(!!covid && !!short, {
+  id: 'covid', ceremony: 93, label: `${label(93)} and ${label(94)}`, title: 'A 14-month year, then a 10-month one',
+  text: `The pandemic stretched eligibility for the 93rd ceremony to the end of February 2021, so ${winnerOf(93)}'s year ran 14 months. The next year was cut to ten months (March to December 2021), and ${winnerOf(94)} won it.`,
+  films: [winnerOf(93), winnerOf(94)],
+});
+const sizes = [...perCeremony].map(([c, rs]) => ({ c, n: rs.length }));
+const maxN = Math.max(...sizes.map((x) => x.n)), minN = Math.min(...sizes.map((x) => x.n));
+const lastFive = Math.max(...sizes.filter((x) => x.n === 5).map((x) => x.c));
+const tenFrom = sizes.find((x, i) => sizes.slice(i).every((y) => y.n === 10)).c;
+const sliding = sizes.filter((x) => x.c > lastFive && x.c < tenFrom && x.n !== 10);
+const slideMin = Math.min(...sliding.map((x) => x.n)), slideMax = Math.max(...sliding.map((x) => x.n));
+oddity(true, {
+  id: 'field', ceremony: 98.5, label: `${label(1)} to ${label(98) ?? 'today'}`, title: `From ${minN} nominees to ${maxN}`,
+  text: `The field has never had a fixed size for long: ${minN} films at the first ceremony, ${maxN} in ${sizes.filter((x) => x.n === maxN).map((x) => label(x.c)).join(' and ')}, exactly 5 for ${sizes.filter((x) => x.n === 5).length} ceremonies, 10 in ${label(lastFive + 1)} and ${label(lastFive + 2)}, then ${slideMax - slideMin === 1 ? `${slideMin} or ${slideMax}` : `anywhere from ${slideMin} to ${slideMax}`} until ${label(tenFrom - 1)}, and 10 every year since ${label(tenFrom)}.`,
+  films: [],
+});
+
 // ---------- services ----------
 const serviceList = [...services.values()].map((s) => ({
   name: s.name,
@@ -205,6 +262,7 @@ out('meta.json', {
   pageviews_through: fetchLog.pageviews?.through ?? null,
   cpi_base_year: cpiBase,
   special_cases: special,
+  oddities: oddities.sort((a, b) => a.ceremony - b.ceremony),
 });
 
 // ---------- quality report ----------
@@ -217,6 +275,7 @@ md.push(`| Nominations parsed from Wikipedia | ${rows.length} |`, `| Winners | $
 md.push(`| Matched to TMDB | ${ok} |`, `| With runtime | ${rows.filter((r) => r.runtime).length} |`, `| With box office (TMDB revenue > 0) | ${rows.filter((r) => r.revenue).length} |`);
 md.push(`| With US watch-provider data | ${rows.filter((r) => r.watch).length} |`, `| With pageviews | ${rows.filter((r) => r.pageviews !== null).length} |`, '');
 md.push('## Special cases handled', '', ...special.map((s) => `- ${s}`), '- Category name changes come from the "Category name changes" list in the same Wikipedia article: ' + eras.map((e) => `${e.name} (${e.from_label}–${e.to_label})`).join('; ') + '.', '- Split-year eligibility (1927/28 to 1932/33) is mapped to the later year; 2020/21 (COVID-extended) is mapped to 2020.', '- CPI years averaged from fewer than 12 months: ' + (cpiPartial.join(', ') || 'none') + `. Box office is adjusted to ${cpiBase} dollars.`, '- Language override: The Artist (2011) is silent; TMDB lists French (production country), so it is not counted as a non-English winner.', '- Each film appears once; no film has been nominated twice. Remakes are distinct films and are matched by Wikidata item, not title.', '');
+md.push('## Envelopes and oddities shown on the page', '', ...oddities.map((o) => `- ${o.title} (${o.label})`), '');
 md.push('## Parser problems', '', Q.problems.length ? Q.problems.map((p) => `- ${JSON.stringify(p)}`).join('\n') : 'None.', '');
 md.push('## Films not matched to TMDB', '', Q.unmatched.length ? Q.unmatched.map((u) => `- ${u.title} (${u.ceremony}), ${u.article}, ${u.qid ?? 'no Wikidata item'}: ${u.status}`).join('\n') : 'None.', '');
 md.push('## Wikidata had more than one TMDB ID', '', Q.multi_tmdb.length ? Q.multi_tmdb.map((m) => `- ${m.title}: ${m.tmdb.join(', ')} (used ${m.used ?? 'IMDb lookup / none'})`).join('\n') : 'None.', '');

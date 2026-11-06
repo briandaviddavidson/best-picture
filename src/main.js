@@ -105,6 +105,30 @@ const tipStyle = (c) => ({ fill: c.surface2, stroke: c.grid, textPadding: 8, fon
     <div class="ex">${e.first_winner.title === e.last_winner.title ? `Winner: <b>${e.first_winner.title}</b>` : `First winner: <b>${e.first_winner.title}</b><br>Last: <b>${e.last_winner.title}</b>`}</div></li>`).join('');
 }
 
+// ---------- 0b. envelopes and oddities ----------
+{
+  const O = F.meta.oddities;
+  const el = section('oddities', {
+    title: 'Only once did they read out the wrong winner',
+    caption: `The 2017 envelope mix-up is the one true on-stage blunder in ${H.ceremonies} ceremonies. The rest of the prize's history has plenty of stranger rules: ${O.length - 1} more below. Tap a film to find it in the where-to-watch list.`,
+    source: `Source: ${SRC.wiki}, including its footnotes and “2017 ceremony mistake” section. Counts of nominees computed from the same tables.`,
+  });
+  const lead = O.find((o) => o.id === 'envelope');
+  const rest = O.filter((o) => o !== lead);
+  const esc = (x) => String(x).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const when = (o) => (Number.isInteger(o.ceremony) && !/,| and | to /.test(o.label) ? `${o.label} films · ${ord(o.ceremony)} ceremony` : o.label);
+  const card = (o, cls = '') => `<li class="odd ${cls}"><div class="when">${esc(when(o))}</div><h3>${esc(o.title)}</h3><p>${esc(o.text)}</p>${o.films.length ? `<div class="go">${o.films.map((f) => `<button type="button" data-film="${esc(f)}">${esc(f)} →</button>`).join('')}</div>` : ''}</li>`;
+  $('.odd-list', el).innerHTML = (lead ? card(lead, 'lead') : '') + rest.map((o) => card(o)).join('');
+  $('.odd-list', el).addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-film]'); if (!b) return;
+    const film = films.find((r) => r.title === b.dataset.film);
+    const search = $('#w-search'); const nom = $('#w-nominees');
+    if (film && !film.winner && !nom.checked) { nom.checked = true; nom.dispatchEvent(new Event('change')); }
+    search.value = b.dataset.film; search.dispatchEvent(new Event('input'));
+    document.getElementById('watch').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+  });
+}
+
 // ---------- 1. runtime ----------
 {
   const R = F.runtime;

@@ -49,6 +49,11 @@ export function initWatch({ films, services, el }) {
     return parts.length ? parts.join('') : '<span class="none">Not streaming, renting or selling in the U.S. right now</span>';
   }
 
+  // Film-specific notes only (skip footnotes that apply to every film that year).
+  const yearCount = new Map();
+  for (const f of films) for (const n of f.notes) yearCount.set(n, (yearCount.get(n) ?? 0) + 1);
+  const noteFor = (f) => f.notes.filter((n) => yearCount.get(n) === 1).join(' ');
+
   function render() {
     const q = fold(search.value.trim());
     const pool = films.filter((f) => nomineesBox.checked || f.winner);
@@ -64,6 +69,7 @@ export function initWatch({ films, services, el }) {
       <div class="yr">${esc(f.film_year_label)}<small>${esc(f.category_name ?? '')}</small></div>
       <div><h3>${f.watch_link ? `<a href="${esc(f.watch_link)}" target="_blank" rel="noopener" style="color:inherit">${esc(f.title)}</a>` : esc(f.title)}<span class="badge${f.winner ? '' : ' nom'}">${f.winner ? 'Winner' : 'Nominee'}</span></h3>
       <div class="meta">${[f.runtime ? `${f.runtime} min` : null, f.genres.slice(0, 3).join(', ') || null].filter(Boolean).map(esc).join(' · ')}</div></div>
+      ${noteFor(f) ? `<div class="note">${esc(noteFor(f))}</div>` : ''}
       <div class="where">${whereHtml(f)}</div></li>`).join('')
       + (shown.length > limit ? `<li><button type="button" class="more">Show ${Math.min(40, shown.length - limit)} more of ${shown.length - limit}</button></li>` : '');
   }

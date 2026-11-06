@@ -33,6 +33,8 @@ About 45 minutes from prompt to a deployable build.
 7. **Logos saved as `.jpg` that were really PNGs, plus lazy-loaded images** that looked missing in full-page screenshots. Both were caught by looking at the rendered page.
 8. **Caption wording that the numbers didn't support.** A draft box-office title implied a change since 1990. The numbers show the top grosser wins about one time in four both before and after (5 of 19 vs. 8 of 33), so the title now says that.
 
+9. **No blunders section at first.** The 2017 envelope mix-up was stored as a note on *Moonlight* and *La La Land* but never shown on the page. Brian asked, and the "Envelopes and oddities" section was added, along with per-film notes in the where-to-watch list. Each oddity is kept only if its supporting text is present in the source article or its footnotes; otherwise it's logged in the quality report.
+
 ## Key decisions and trade-offs
 
 - **Fetch on the user's machine.** The cloud sandbox, and the sandbox on the Mac, can't reach Wikidata or TMDB. So Claude wrote an idempotent, cached `npm run fetch-data`, Brian ran it once in his own Terminal, and everything after that (transform, findings, charts, build) ran from the cached raw files. Processed data is committed, so the site build needs no keys or network.

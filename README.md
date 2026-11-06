@@ -5,6 +5,7 @@ A data story about every Academy Award Best Picture nominee and winner since the
 Charts, each with a caption computed from the data:
 
 1. **One prize, five names:** Outstanding Picture → Outstanding Production → Outstanding Motion Picture → Best Motion Picture → Best Picture
+1. **Envelopes and oddities:** the 2017 envelope mix-up, two top prizes in 1929, the year with no nominees, announced runners-up, the COVID years, and the changing size of the field. Each one is generated from the Wikipedia article and its footnotes, and links into the where-to-watch list
 2. **Winners run long:** runtime of every nominee, winners highlighted
 3. **Genres by decade:** what got nominated, and which genres convert to wins
 4. **Does box office matter?** Each winner's box-office rank among its nominees

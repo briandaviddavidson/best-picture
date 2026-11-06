@@ -7,6 +7,7 @@ const strip = (s) => s
   .replace(/\{\{efn[^{}]*(\{\{[^{}]*\}\}[^{}]*)*\}\}/g, '')
   .replace(/<ref[^>]*\/>/g, '').replace(/<ref[^>]*>[\s\S]*?<\/ref>/g, '')
   .replace(/\{\{small\|([^{}]*)\}\}/g, '$1')
+  .replace(/\{\{lang\|[a-z-]+\|([^{}]*)\}\}/g, '$1')
   .replace(/\[\[([^\]|]*)\|([^\]]*)\]\]/g, '$2').replace(/\[\[([^\]]*)\]\]/g, '$1')
   .replace(/'{2,}/g, '').replace(/<br\s*\/?>/g, ' ').replace(/\s+/g, ' ').trim();
 
