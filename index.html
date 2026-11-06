@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>The Envelope, Please · Every Best Picture, in data</title>
+  <meta name="description" content="Every Academy Award Best Picture winner and nominee since 1929, told through data: how long they run, what they're about, whether box office matters, and where to stream each one tonight." />
+  <meta name="theme-color" content="#0f0d0a" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f0d0a'/%3E%3Cpath d='M16 5l3 7.5 8 .6-6.1 5.2 1.9 7.8L16 21.9 9.2 26.1l1.9-7.8L5 13.1l8-.6z' fill='%23d8b46a'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./src/style.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the charts</a>
+  <nav class="site-nav" aria-label="Site">
+    <a href="/">Brian Davidson</a>
+    <a href="#watch">Where to watch</a>
+  </nav>
+
+  <header class="hero">
+    <svg class="sunburst" viewBox="0 0 800 400" aria-hidden="true" focusable="false"></svg>
+    <p class="kicker">A data story · <span data-f="first"></span>–<span data-f="latest"></span></p>
+    <h1>The Envelope, <span>Please</span></h1>
+    <p class="dek" id="dek"></p>
+    <dl class="stats" id="stats"></dl>
+  </header>
+
+  <main id="main">
+    <section class="chart" id="names">
+      <h2 data-title></h2><p class="caption" data-caption></p>
+      <ol class="eras" aria-label="Names of the top award by era"></ol>
+      <p class="source" data-source></p>
+    </section>
+
+    <section class="chart" id="runtime">
+      <h2 data-title></h2><p class="caption" data-caption></p>
+      <div class="legend" aria-hidden="true"></div>
+      <div class="plot" role="img"></div>
+      <details class="table"><summary>Show the data</summary><div></div></details>
+      <p class="source" data-source></p>
+    </section>
+
+    <section class="chart" id="genres">
+      <h2 data-title></h2><p class="caption" data-caption></p>
+      <div class="legend" aria-hidden="true"></div>
+      <div class="plot" role="img"></div>
+      <details class="table"><summary>Show the data</summary><div></div></details>
+      <p class="source" data-source></p>
+    </section>
+
+    <section class="chart" id="boxoffice">
+      <h2 data-title></h2><p class="caption" data-caption></p>
+      <div class="plot" role="img"></div>
+      <details class="table"><summary>Show the data</summary><div></div></details>
+      <p class="source" data-source></p>
+    </section>
+
+    <section class="chart" id="map">
+      <h2 data-title></h2><p class="caption" data-caption></p>
+      <div class="controls" id="map-controls"></div>
+      <div class="plot map" role="img"></div>
+      <details class="table"><summary>Show the data</summary><div></div></details>
+      <p class="source" data-source></p>
+    </section>
+
+    <section class="chart" id="memory">
+      <h2 data-title></h2><p class="caption" data-caption></p>
+      <div class="plot" role="img"></div>
+      <details class="table"><summary>Show the data</summary><div></div></details>
+      <p class="source" data-source></p>
+    </section>
+
+    <section class="chart" id="services">
+      <h2 data-title></h2><p class="caption" data-caption></p>
+      <div class="bars" role="img"></div>
+      <details class="table"><summary>Show the data</summary><div></div></details>
+      <p class="source" data-source></p>
+    </section>
+
+    <section class="chart signature" id="watch">
+      <h2 data-title></h2><p class="caption" data-caption></p>
+      <div class="filters">
+        <label class="search"><span class="sr">Search films</span><input id="w-search" type="search" placeholder="Search a title or year" autocomplete="off" /></label>
+        <label><input type="checkbox" id="w-nominees" /> Include nominees</label>
+      </div>
+      <fieldset class="mine"><legend>My services <small>(tick what you have)</small></legend><div id="w-services"></div></fieldset>
+      <p class="w-summary" id="w-summary" aria-live="polite"></p>
+      <ol class="films" id="w-list"></ol>
+      <p class="source" data-source></p>
+    </section>
+  </main>
+
+  <footer>
+    <p id="credits"></p>
+    <p>An independent fan project. Not affiliated with, endorsed by, or sponsored by the Academy of Motion Picture Arts and Sciences. "Academy Awards" and "Oscar" are its trademarks, used here only to describe the award. Streaming service names and logos belong to their owners and only show where a film is available.</p>
+    <p><a href="https://github.com/briandaviddavidson/best-picture">Source, data and quality report on GitHub</a></p>
+  </footer>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

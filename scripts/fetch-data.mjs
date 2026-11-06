@@ -5,8 +5,9 @@
 //   npm run fetch-data -- --force=tmdb,pageviews
 //
 // Sources (see data/SOURCES.md):
-//   wikidata.json    Best Picture nominations and wins, with TMDB/IMDb IDs and enwiki titles
-//   wikipedia.json   wikitext of "Academy Award for Best Picture" (cross-check + category names)
+//   wikipedia.json   wikitext of "Academy Award for Best Picture": the nominee list (primary)
+//   films.json       each nominated film's enwiki title -> Wikidata item -> TMDB/IMDb IDs
+//   wikidata.json    Wikidata's own Best Picture nominations/wins (cross-check only)
 //   tmdb.json        TMDB movie details + US watch providers (JustWatch data), one entry per film
 //   providers.json   TMDB list of US movie watch providers (names, logos, display priority)
 //   pageviews.json   monthly enwiki pageviews per film since July 2015
@@ -17,6 +18,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { parseNominees } from './lib/wikipedia.mjs';
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const RAW = path.join(ROOT, 'data/raw');
@@ -110,7 +112,53 @@ SELECT ?film ?filmLabel ?kind ?ceremony ?ceremonyLabel ?time ?tmdb ?imdb ?articl
   log(`wikidata: ${flat.length} rows`);
 }
 
-// ---------- Wikipedia (cross-check + category names) -------------------------
+
+// ---------- Films: Wikipedia article -> Wikidata item -> TMDB/IMDb IDs -------
+async function fetchFilms() {
+  const wt = readJson('wikipedia.json')['Academy Award for Best Picture'].wikitext;
+  const { films } = parseNominees(wt);
+  const cache = force('films') ? {} : readJson('films.json', {});
+  const todo = films.map((f) => f.article).filter((a) => !cache[a]);
+  log(`films: ${films.length} nominees, ${todo.length} to resolve`);
+  for (let i = 0; i < todo.length; i += 50) {
+    const batch = todo.slice(i, i + 50);
+    const url = `https://en.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&redirects=1&prop=pageprops&ppprop=wikibase_item&titles=${encodeURIComponent(batch.join('|'))}`;
+    const j = await get(url);
+    const norm = new Map((j.query.normalized ?? []).map((n) => [n.from, n.to]));
+    const redir = new Map((j.query.redirects ?? []).map((n) => [n.from, n.to]));
+    const pages = new Map(j.query.pages.map((p) => [p.title, p]));
+    for (const a of batch) {
+      const n = norm.get(a) ?? a;
+      const canonical = redir.get(n) ?? n;
+      const page = pages.get(canonical);
+      cache[a] = { article: canonical, qid: page?.pageprops?.wikibase_item ?? null, missing: !!page?.missing };
+    }
+    await sleep(300);
+  }
+  const qids = [...new Set(Object.values(cache).filter((c) => c.qid && !c.ids_checked).map((c) => c.qid))];
+  for (let i = 0; i < qids.length; i += 150) {
+    const batch = qids.slice(i, i + 150);
+    const rows = await sparql(`SELECT ?film ?tmdb ?imdb ?pub WHERE { VALUES ?film { ${batch.map((q) => `wd:${q}`).join(' ')} }
+      OPTIONAL { ?film wdt:P4947 ?tmdb } OPTIONAL { ?film wdt:P345 ?imdb } OPTIONAL { ?film wdt:P577 ?pub } }`);
+    const by = new Map();
+    for (const b of rows) {
+      const q = b.film.value.split('/').pop();
+      const e = by.get(q) ?? { tmdb: new Set(), imdb: new Set(), pub: new Set() };
+      if (b.tmdb) e.tmdb.add(b.tmdb.value); if (b.imdb) e.imdb.add(b.imdb.value); if (b.pub) e.pub.add(b.pub.value.slice(0, 10));
+      by.set(q, e);
+    }
+    for (const c of Object.values(cache)) {
+      const e = c.qid && by.get(c.qid);
+      if (!e) continue;
+      Object.assign(c, { tmdb: [...e.tmdb], imdb: [...e.imdb], pub: [...e.pub].sort(), ids_checked: true });
+    }
+  }
+  writeJson('films.json', cache);
+  note('films', { nominees: films.length, resolved: Object.values(cache).filter((c) => c.qid).length });
+  log('films: done');
+}
+
+// ---------- Wikipedia (primary nominee list + category names) ----------------
 async function fetchWikipedia() {
   if (!force('wikipedia') && fs.existsSync(rawPath('wikipedia.json'))) return log('wikipedia: cached');
   const pages = ['Academy Award for Best Picture'];
@@ -132,26 +180,29 @@ const tmdb = (p) => get(`${TMDB}${p}`, { headers: { Authorization: `Bearer ${TOK
 
 async function fetchTmdb() {
   if (!TOKEN) throw new Error('TMDB_READ_TOKEN is not set. Copy .env.example to .env and add your TMDB API Read Access Token.');
-  const wd = readJson('wikidata.json').rows;
-  const films = new Map();
-  for (const r of wd) if (!films.has(r.film)) films.set(r.film, r);
-
+  const films = readJson('films.json');
   const cache = force('tmdb') ? {} : readJson('tmdb.json', {});
-  const todo = [...films.values()].filter((r) => !cache[r.film]);
-  log(`tmdb: ${films.size} films, ${todo.length} to fetch`);
+  // Keyed by enwiki article title (the same key transform uses). Earlier runs keyed by
+  // Wikidata URL; those entries are ignored.
+  for (const k of Object.keys(cache)) if (k.startsWith('http')) delete cache[k];
+  const todo = Object.values(films).filter((f) => !cache[f.article]);
+  log(`tmdb: ${Object.keys(films).length} films, ${todo.length} to fetch`);
   await pool(todo, 6, async (r) => {
-    let id = r.tmdb, via = 'wikidata:P4947';
-    if (!id && r.imdb) {
-      const f = await tmdb(`/find/${r.imdb}?external_source=imdb_id`);
+    const key = r.article;
+    let id = r.tmdb?.length === 1 ? r.tmdb[0] : null, via = 'wikidata:P4947';
+    if (r.tmdb?.length > 1) via = `wikidata:P4947 had ${r.tmdb.length} values`;
+    const imdb = r.imdb?.find((x) => x.startsWith('tt'));
+    if (!id && imdb) {
+      const f = await tmdb(`/find/${imdb}?external_source=imdb_id`);
       id = f?.movie_results?.[0]?.id; via = 'imdb:find';
     }
-    if (!id) { cache[r.film] = { status: 'unmatched', title: r.filmLabel }; return; }
+    if (!id) { cache[key] = { status: 'unmatched', qid: r.qid, tmdb_candidates: r.tmdb ?? [] }; return; }
     const m = await tmdb(`/movie/${id}?language=en-US&append_to_response=watch/providers,release_dates`);
-    if (!m) { cache[r.film] = { status: 'not_found', tmdb_id: id, via, title: r.filmLabel }; return; }
+    if (!m) { cache[key] = { status: 'not_found', tmdb_id: id, via, qid: r.qid }; return; }
     const us = m['watch/providers']?.results?.US ?? null;
     const usCert = m.release_dates?.results?.find((x) => x.iso_3166_1 === 'US');
-    cache[r.film] = {
-      status: 'ok', via, tmdb_id: m.id, imdb_id: m.imdb_id, title: m.title, original_title: m.original_title,
+    cache[key] = {
+      status: 'ok', via, qid: r.qid, tmdb_id: m.id, imdb_id: m.imdb_id, title: m.title, original_title: m.original_title,
       original_language: m.original_language, release_date: m.release_date, runtime: m.runtime,
       budget: m.budget, revenue: m.revenue, genres: m.genres?.map((g) => g.name),
       production_countries: m.production_countries?.map((c) => c.iso_3166_1),
@@ -165,7 +216,7 @@ async function fetchTmdb() {
 
   const prov = await tmdb('/watch/providers/movie?language=en-US&watch_region=US');
   writeJson('providers.json', prov);
-  note('tmdb', { films: Object.keys(cache).length, watch_region: 'US', providers_snapshot: new Date().toISOString().slice(0, 10) });
+  note('tmdb', { films: Object.keys(cache).length, unmatched: Object.values(cache).filter((c) => c.status !== 'ok').length, watch_region: 'US', providers_snapshot: new Date().toISOString().slice(0, 10) });
   log('tmdb: done');
 }
 
@@ -187,8 +238,7 @@ async function fetchLogos() {
 
 // ---------- Wikimedia pageviews ----------------------------------------------
 async function fetchPageviews() {
-  const wd = readJson('wikidata.json').rows;
-  const titles = [...new Set(wd.map((r) => r.article).filter(Boolean).map((u) => decodeURIComponent(u.split('/wiki/')[1])))];
+  const titles = [...new Set(Object.values(readJson('films.json')).filter((f) => !f.missing).map((f) => f.article))];
   const cache = force('pageviews') ? {} : readJson('pageviews.json', {});
   const now = new Date();
   const end = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1)); // first of this month (exclusive)
@@ -214,12 +264,12 @@ async function fetchCpi() {
   log('cpi: done');
 }
 
-const steps = [fetchWikidata, fetchWikipedia, fetchTmdb, fetchLogos, fetchPageviews, fetchCpi];
+const steps = [fetchWikipedia, fetchFilms, fetchWikidata, fetchTmdb, fetchLogos, fetchPageviews, fetchCpi];
 for (const step of steps) {
   try { await step(); } catch (e) {
     console.error(`\n${step.name} failed: ${e.message}`);
     note(step.name, { error: e.message });
-    if (step === fetchWikidata || step === fetchTmdb) process.exit(1);
+    if ([fetchWikipedia, fetchFilms, fetchTmdb].includes(step)) process.exit(1);
   }
 }
 log('\nAll done. Raw data is in data/raw/.');
